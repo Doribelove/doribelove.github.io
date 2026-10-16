@@ -3,10 +3,12 @@
 **直接打开网页简历：[https://doribelove.github.io/](https://doribelove.github.io/)**
 
 - [简历版 / 打印或保存为 PDF](https://doribelove.github.io/resume/)
+- [项目图文与视频](https://doribelove.github.io/projects/)
+- [论文与作者稿下载](https://doribelove.github.io/#publications)
 - [GitHub 个人资料](https://github.com/Doribelove)
 - [3YD-V5-r11 本地静态实验摘要](https://doribelove.github.io/evidence/3yd-v5-r11.md)
 
-这是一份中文在线简历与项目作品集，包括机器人项目、实验对照、已合并开源贡献、技术能力和联系方式。内容核验于 2026-09-22；实验条件与尚未合并的贡献在页面中单独注明。
+这是一份中文在线简历与项目作品集，包括两篇论文、三项近期项目、实车图文视频、历史实验对照、24项上游已合并贡献、技术能力和联系方式。内容核验于 2026-10-16；实验条件与尚未合并的贡献在页面中单独注明。
 
 ## 如何查看
 
@@ -38,7 +40,12 @@ npm run build
 ## 内容维护
 
 - `app/content.ts`：联系方式、已合并贡献和技术能力。
-- `app/page.tsx`：项目介绍及主页结构。
+- `app/page.tsx`：主页结构与历史实验。
+- `app/featured.tsx`、`app/projects/page.tsx`：近期项目、图文和演示。
+- `app/publications.tsx`：论文题目、完整作者、角色、状态与链接。
+- `public/papers/`：期刊作者稿及首页；稿内日期和 DOI 占位项不作为正式出版信息。
+- `public/media/`：来自项目仓库与挑战杯材料的精选媒体。
+- `public/evidence/contributions-20261016.json`：24项上游已合并PR核验清单。
 - `app/components/Benchmark.tsx`：实验对照图，数字需同时更新实验摘要。
 - `app/resume/page.tsx`：适合打印的简历版。
 - `public/evidence/3yd-v5-r11.md`：经过核验的汇总指标与实验条件。
