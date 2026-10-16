@@ -1,7 +1,14 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import PrintButton from '../components/PrintButton';
-import { contributions, email, github, updatedOn } from '../content';
+import {
+  contributions,
+  contributionProjectCount,
+  email,
+  github,
+  updatedOn,
+} from '../content';
+import { publications } from '../publications';
 
 export const metadata: Metadata = {
   title: '李永祺 · 机器人导航与算法工程简历',
@@ -21,7 +28,7 @@ export default function Resume() {
             <h1>
               李永祺 <span>YongQi Li</span>
             </h1>
-            <p>机器人导航 · 路径规划 · 系统工程</p>
+            <p>机器人导航 · 路径规划 · 多模态检索问答</p>
           </div>
           <div>
             <a href={`mailto:${email}`}>{email}</a>
@@ -36,85 +43,131 @@ export default function Resume() {
           </p>
           <p>
             围绕移动机器人开展 ROS
-            系统集成、分层规划、性能优化与回归验证，并持续向科学计算和机器人开源项目贡献修复。
+            系统集成、分层规划、性能优化与回归验证，同时开展多模态问答实践，并向科学计算和机器人开源项目贡献修复。
           </p>
+        </section>
+        <section>
+          <h2>论文成果</h2>
+          {publications.map((paper) => (
+            <div className="resume-publication" key={paper.id}>
+              <h3>
+                <a href={paper.links[0].href}>{paper.title}</a>
+              </h3>
+              <p>
+                <b>{paper.role}</b> · {paper.status}
+              </p>
+              <p className="resume-note">{paper.authors}</p>
+              <p className="resume-note">
+                {paper.links.map((link, index) => (
+                  <span key={link.href}>
+                    {index > 0 && ' · '}
+                    <a href={link.href}>{link.name} ↗</a>
+                  </span>
+                ))}
+              </p>
+            </div>
+          ))}
         </section>
         <section>
           <h2>项目经历</h2>
           <div className="resume-project">
             <h3>
-              3YD 分层导航与大地图优化 <span>ROS 2 / Nav2 / C++ / Python</span>
+              <a href="https://doribelove.github.io/projects/#pudu">
+                普渡 · 分层导航与运动规划
+              </a>{' '}
+              <span>ROS 2 / Nav2 / C++ / Python</span>
             </h3>
             <ul>
               <li>
-                连接区域选路、参考路径与 Smac
-                规划；优化原生膨胀队列、分块代价转换和有限支持域计算，保留内容
-                ACK 与严格路径终验。
+                连接 L1/L2/L3 分层规划与任务地图同步，保留真实
+                ACK、运动学约束和严格终验，整理可追溯实验与分布统计图。
               </li>
               <li>
-                r11 A+B 相比同环境 r10：查询峰值 RSS{' '}
-                <b>3.779 → 2.451 GiB（−35.2%）</b>；总体耗时中位{' '}
-                <b>1.418 → 1.178 s（−17.0%）</b>。
-              </li>
-              <li>
-                固定集 <b>30/30</b>、乱序 <b>50/50</b>、端点扰动 <b>10/10</b>{' '}
-                通过，路径逐点一致；800 组原生等价性用例、41 项 Python
-                测试通过。
+                V11-r3 十图、300 次首次请求：
+                <b>297 次精确成功 + 3 次授权容差成功</b>；请求耗时中位{' '}
+                <b>0.816 s</b>、P95 <b>3.657 s</b>，整进程树 RSS 峰值中位{' '}
+                <b>990.39 MiB</b>。
               </li>
             </ul>
             <p className="resume-note">
-              本地静态单地图实验；计时不含一次性准备与常驻栈启动。动态实机及多地图部署未验收。
-              <a href="https://doribelove.github.io/evidence/3yd-v5-r11.md">
-                实验摘要 ↗︎
+              静态规划与指定受控事件回放，不作为实车验收；计时从地图/服务就绪后的请求开始，不含加载与初始化。
+              <a href="https://github.com/Doribelove/pudu_robot_ws">
+                源码与验证记录 ↗︎
               </a>
             </p>
           </div>
           <div className="resume-project">
             <h3>
-              Autolabor 双机导航系统{' '}
+              <a href="https://doribelove.github.io/projects/#autolabor">
+                净途智行 · 地平线挑战杯实车项目
+              </a>{' '}
               <span>ROS Noetic / FAST-LIO / Hybrid A* / TEB</span>
             </h3>
             <ul>
               <li>
-                整合定位、覆盖规划与控制；采用可取消的异步转场任务，处理截止时间、旧结果失效、运行版本隔离和进程生命周期。
+                在 J6M + Jetson 双机平台集成 FAST-LIO / ICP 或双天线
+                GNSS、条带覆盖、Hybrid A* / TEB、YOLO11s-GAM 与语音 / Qt
+                任务交互。
               </li>
               <li>
-                <b>195 项工作区测试、10 项隔离生命周期测试通过</b>；完成 ARM64
-                原生构建与部署检查，该优化批次未进行实车运动性能验收。
+                机场场景记录 <b>160 m² / 98.0% 导航覆盖</b>
+                ；另有装配清扫机构后的刷扫收集实车视频。图文和视频附于在线作品集，导航覆盖与清扫验证分开记录。
               </li>
             </ul>
           </div>
           <div className="resume-project">
             <h3>
-              EGO-Planner 地面车适配 <span>C++ / B 样条 / MPC / qpOASES</span>
+              <a href="https://doribelove.github.io/projects/#huawei">
+                华为存储杯 · 多模态检索问答
+              </a>{' '}
+              <span>Qwen3-VL / BGE-M3 / Python</span>
             </h3>
             <ul>
               <li>
-                将无人机执行链路适配为二维地面车规划，通过 MPC 跟踪 B
-                样条轨迹并输出底盘速度，接入点云预处理与前进/倒车逻辑；公开记录接口及部署问题。
+                构建 PDF
+                文本、表格、图像的混合检索、重排、来源绑定与支持检查流程，以本地
+                Qwen3-VL-8B 完成可追溯回答与拒答，适配赛事建库和 HTTP 查询接口。
+              </li>
+              <li>
+                公开 r58 已提交源码与真实案例；历史开发 30 题本地同模型判分{' '}
+                <b>26/30</b>，同作者原文完全支持审阅 <b>25/30</b>
+                ，非官方或独立评测成绩。
               </li>
             </ul>
           </div>
         </section>
         <section>
           <h2>
-            已合并的开源贡献 <span>7 个 PR · 6 个上游项目</span>
+            已合并的开源贡献{' '}
+            <span>
+              {contributions.length} 个 PR · {contributionProjectCount}{' '}
+              个上游项目，以下精选 6 项
+            </span>
           </h2>
           <div className="resume-contributions">
-            {contributions.map((item) => (
-              <p key={item.href}>
-                <b>{item.project}</b>
-                <span>{item.title}</span>
-                <a href={item.href}>#{item.number} ↗︎</a>
-              </p>
-            ))}
+            {contributions
+              .filter((item) =>
+                [706, 669, 224, 957, 2422, 4726].includes(item.number),
+              )
+              .map((item) => (
+                <p key={item.href}>
+                  <b>{item.project}</b>
+                  <span>{item.title}</span>
+                  <a href={item.href}>#{item.number} ↗︎</a>
+                </p>
+              ))}
           </div>
+          <p className="resume-note">
+            <a href="https://doribelove.github.io/#opensource">
+              最新贡献与全部合并记录 ↗
+            </a>
+          </p>
         </section>
         <section>
           <h2>技术能力与社区</h2>
           <p>
             <b>语言与工程：</b>C++、Python、Linux、Git、pytest、ROS 1 /
-            2、CI、性能剖析。
+            2、CI、性能剖析、Transformers、多模态 RAG。
           </p>
           <p>
             <b>机器人：</b>FAST-LIO、ICP、TF、Nav2、Hybrid A*、TEB、覆盖规划、B
