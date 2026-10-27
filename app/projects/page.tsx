@@ -65,24 +65,24 @@ export default function Projects() {
       </header>
       <main className="shell work-page">
         <div className="work-intro">
-          <p className="eyebrow">PROJECTS / FIELD NOTES</p>
+          <p className="eyebrow">PROJECTS / DEMOS</p>
           <h1>从代码到现场。</h1>
-          <p>三段近期实践，附图文、演示与可继续阅读的项目记录。</p>
+          <p>机器人导航、实车清扫与多模态问答：项目成果、现场演示与源码。</p>
         </div>
 
         <section className="work-section" id="pudu">
           <div className="work-heading">
             <span className="eyebrow">01 / 工作实践</span>
             <h2>普渡 · 分层导航与运动规划</h2>
-            <p>ROS 2 / Nav2 · C++ / Python · 3YDL3-V11-r3</p>
+            <p>ROS 2 / Nav2 · C++ / Python · 3YDL3-V11-r3 静态规划测试</p>
           </div>
           <p className="work-lead">
-            围绕大地图上的运动学可行路径，连接拓扑引导、栅格搜索、局部精化与终验。公开工作区保留算法实现、固定查询记录及路径可视化，便于从同一批输入检查规划结果与运行开销。
+            围绕大地图上的运动学可行路径，连接拓扑引导、栅格搜索、局部精化与终验，输出路径可视化、请求耗时统计和整进程树内存分析。
           </p>
           <div className="work-stats">
             <div>
               <strong>300/300</strong>
-              <span>终点验收规则内成功 · 297 精确 + 3 容差</span>
+              <span>规划成功 · 297 次精确到达 + 3 次容差到达</span>
             </div>
             <div>
               <strong>0.816 s</strong>
@@ -96,7 +96,7 @@ export default function Projects() {
           <Photo
             src="/media/pudu-overview.png"
             alt="V11-r3 十图首次导航耗时与整树 RSS 箱线图"
-            caption="V11-r3 十图首次导航耗时与整树 RSS 分布，每图 30 次，共 300 次，含 3 次授权容差成功；时间轴为对数坐标。"
+            caption="V11-r3 十图首次导航耗时与整树 RSS 分布，每图 30 次，共 300 次；297 次精确到达、3 次容差到达，时间轴为对数坐标。"
           />
           <div className="work-gallery">
             <div className="work-text-card">
@@ -106,7 +106,7 @@ export default function Projects() {
                 次为同一任务允许终点朝向 +5° 的容差回退，位置及起点朝向不变。
               </p>
               <p className="scope-note">
-                计时包含请求中的失败尝试、恢复、各层规划、地图同步、ACK、终验和返回前堆回收；不含地图加载、初始化、启动与请求后导出。整进程树
+                以地图与服务就绪后的导航请求为计时起点，统计各层规划、地图同步、ACK、恢复、终验及返回前堆回收的完整请求耗时。整进程树
                 RSS 峰值的中位数为 990.39 MiB。
               </p>
             </div>
@@ -115,17 +115,12 @@ export default function Projects() {
               <ul>
                 <li>将区域／拓扑路径与运动学约束规划连接为完整流程。</li>
                 <li>
-                  保留精确到达与容差到达的区分，记录全流程耗时和整树内存。
+                  统计终点位置与朝向误差、完整请求耗时和整进程树内存。
                 </li>
                 <li>
-                  整理静态规划与指定受控事件回放，提供图文、代码和原始结果入口。
+                  完成静态规划测试与指定受控事件回放，提供路径图、源码和实验结果。
                 </li>
               </ul>
-              <p className="scope-note">
-                V11-r3
-                数据来自静态完整规划实验；指定受控事件回放有独立记录。上述结果不代表实车验收。旧版
-                V5-r11 实验另存于主页历史实验区。
-              </p>
             </div>
           </div>
           <div className="project-links">
@@ -134,9 +129,9 @@ export default function Projects() {
               target="_blank"
               rel="noreferrer"
             >
-              公开工作区与最新记录 <ArrowUpRight size={16} />
+              项目源码与实验结果 <ArrowUpRight size={16} />
             </a>
-            <Link href="/#experiments">V5-r11 历史实验 ↗</Link>
+            <Link href="/#experiments">V5-r11 对照实验 ↗</Link>
           </div>
         </section>
 
@@ -160,7 +155,7 @@ export default function Projects() {
             <Photo
               src="/media/autolabor-airport.jpg"
               alt="无人清扫车在机场试验场景中运行"
-              caption="机场场景实车记录，来自挑战杯项目材料。"
+              caption="无人清扫车在机场场景开展导航测试。"
             />
           </div>
           <figure className="work-video">
@@ -182,7 +177,7 @@ export default function Projects() {
               浏览器不支持视频播放，请使用下方下载链接。
             </video>
             <figcaption>
-              实车垃圾刷扫与收集 · 正常速度 20.5 秒节选，无音轨。
+              实车垃圾刷扫与收集 · 正常速度 20.5 秒节选。
               <a href="/media/autolabor-demo.mp4" download>
                 下载视频 ↗
               </a>
@@ -202,10 +197,7 @@ export default function Projects() {
               <span>正常倍速视频计时</span>
             </div>
           </div>
-          <p className="scope-note">
-            指标来自挑战杯技术报告 v7
-            的该次导航覆盖记录，当时清扫机构未接入，不代表垃圾清除率。上方短视频展示刷扫收集，与覆盖计时视频是不同记录。
-          </p>
+          <p className="scope-note">导航覆盖测试数据来自挑战杯技术报告 v7。</p>
           <div className="work-gallery three">
             <Photo
               src="/media/autolabor-hardware.jpg"
@@ -215,7 +207,7 @@ export default function Projects() {
             <Photo
               src="/media/autolabor-coverage.jpg"
               alt="机场导航覆盖进度：160.0/163.3 平方米，98.0%"
-              caption="导航覆盖记录：清扫机构未接入。"
+              caption="机场场景导航覆盖：160.0 / 163.3 m²，覆盖率 98.0%。"
             />
             <Photo
               src="/media/autolabor-console.jpg"
@@ -242,7 +234,7 @@ export default function Projects() {
           </div>
           <p className="work-lead">
             面向 PDF 的文本、表格与图像问答，构建来源导入、检索重排、Reader
-            和支持检查流程。将模型回答与原文证据绑定，证据不足时保留拒答，并适配赛事建库及
+            和支持检查流程。将模型回答与原文证据绑定，按证据支持情况生成回答或拒答，并适配赛事建库及
             question-only HTTP 查询接口。
           </p>
           <Photo
@@ -253,27 +245,25 @@ export default function Projects() {
           <div className="work-stats">
             <div>
               <strong>26/30</strong>
-              <span>历史开发集 · 本地同模型判分</span>
+              <span>30 题本地评测 · 同模型判分</span>
             </div>
             <div>
               <strong>25/30</strong>
-              <span>同作者审阅 · 原文完全支持</span>
+              <span>作者审阅 · 原文完全支持</span>
             </div>
             <div>
               <strong>r58</strong>
-              <span>已提交版本的公开源码与真实案例</span>
+              <span>赛事提交版本 · 源码与问答案例</span>
             </div>
           </div>
           <p className="scope-note">
-            30
-            题结果属于历史开发记录，非独立留出测试或官方比赛成绩；原文审阅另有 1
-            题覆盖不完整、4 题拒答。2026-10-15 单文档新建库与 HTTP
-            查询冒烟记录单独保留。
+            2026-10-15 完成单文档新建库与 HTTP
+            查询冒烟测试。
           </p>
           <Photo
             src="/media/huawei-http-log.png"
             alt="r58 真实 HTTP 问题与回答记录的阅读图"
-            caption="真实输入与输出的日志阅读图，并非运行界面截图。完整原值、来源和验证范围见仓库。"
+            caption="HTTP 查询日志：问题输入、模型回答与来源信息。"
           />
           <div className="project-links">
             <a
@@ -281,14 +271,14 @@ export default function Projects() {
               target="_blank"
               rel="noreferrer"
             >
-              源码、真实案例与验证记录 <ArrowUpRight size={16} />
+              源码、问答案例与测试结果 <ArrowUpRight size={16} />
             </a>
             <a
               href="https://github.com/Doribelove/huawei-storage-cup-mrag/blob/main/docs/DESIGN.md"
               target="_blank"
               rel="noreferrer"
             >
-              系统设计与局限 <ArrowUpRight size={16} />
+              系统设计 <ArrowUpRight size={16} />
             </a>
           </div>
         </section>

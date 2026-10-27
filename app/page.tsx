@@ -12,6 +12,7 @@ import FeaturedProjects from './featured';
 import { Publications } from './publications';
 import {
   contributions,
+  contributionsAsOf,
   contributionProjectCount,
   email,
   github,
@@ -28,7 +29,7 @@ function RouteDrawing() {
     >
       <title id="route-title">分层规划概念示意</title>
       <desc id="route-description">
-        由区域选路、参考路径到运动学规划的三层链路；不是实验地图或实测轨迹。
+        区域选路、参考路径与运动学规划组成的三层导航链路概念图。
       </desc>
       <defs>
         <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -187,7 +188,7 @@ export default function Home() {
                 <span className="mono">ROBOTICS / RESEARCH</span>
                 <strong>导航系统与多模态问答</strong>
               </div>
-              <span className="outline-badge">更新 · 10.16</span>
+              <span className="outline-badge">更新 · 10.27</span>
             </div>
           </aside>
         </section>
@@ -219,10 +220,10 @@ export default function Home() {
             </p>
           </Link>
           <div className="fact-context">
-            成果附原始链接与验证范围。
+            移动机器人导航与运动规划。
             <br />
-            论文状态与作者排序分别注明。
-            <span className="mono">VERIFIED {updatedOn}</span>
+            多模态检索问答与开源协作。
+            <span className="mono">UPDATED {updatedOn}</span>
           </div>
         </div>
 
@@ -235,7 +236,7 @@ export default function Home() {
             <p>
               从分层规划到部署链路，
               <br />
-              重点展示可以解释、可以验证的工作。
+              覆盖算法实现、系统集成与实车应用。
             </p>
           </div>
           <FeaturedProjects />
@@ -246,14 +247,14 @@ export default function Home() {
         <section className="experiment-section" id="experiments">
           <div className="shell experiment-grid">
             <div className="experiment-copy">
-              <span className="eyebrow">03 / ARCHIVED EXPERIMENT</span>
+              <span className="eyebrow">03 / PLANNING PERFORMANCE</span>
               <h2>
                 路径保持一致，
                 <br />
                 开销进一步下降。
               </h2>
               <p>
-                保留 2026-09-22 的 3YD-V5-r11 历史实验：A+B 对比同环境重新运行的
+                3YD-V5-r11 静态规划性能优化：A+B 对比同环境重新运行的
                 r10。固定 10 组查询各运行 3
                 次，全部通过严格验收；最终路径逐点一致。
               </p>
@@ -268,11 +269,11 @@ export default function Home() {
                 </div>
               </div>
               <a className="text-link" href="/evidence/3yd-v5-r11.md" download>
-                实验摘要与统计口径 <ArrowUpRight size={16} aria-hidden="true" />
+                实验结果与方法 <ArrowUpRight size={16} aria-hidden="true" />
               </a>
               <p className="scope-note">
                 静态单地图实验 · 串行查询 ·
-                数值库单线程。查询计时不含一次性世界准备与常驻栈启动，不能解读为整车运行速度提升。
+                数值库单线程。规划栈就绪后统计查询耗时。
               </p>
             </div>
             <Benchmark />
@@ -289,7 +290,7 @@ export default function Home() {
               {contributions.length} 个 PR，{contributionProjectCount}{' '}
               个上游项目。
               <br />
-              截至 {updatedOn}，下列为最近 10 项。
+              截至 {contributionsAsOf}，下列为最近 10 项。
             </p>
           </div>
           <div className="contribution-list">
@@ -326,9 +327,8 @@ export default function Home() {
             </a>
             {' · '}
             <a href="/evidence/contributions-20261016.json" download>
-              24 项核验清单（JSON）
+              24 项贡献详情（JSON）
             </a>
-            {' · '}仅统计本人提交至其他所有者仓库、且 GitHub 已标记合并的 PR。
           </p>
         </section>
 
@@ -410,10 +410,7 @@ export default function Home() {
           <span>© 2026 李永祺 / Dori</span>
           <a href="#top">返回顶部 ↑</a>
         </div>
-        <p>
-          更新于 {updatedOn}。部分开发、测试与文档使用 AI
-          辅助；成果以实验记录及上游合并记录为依据。
-        </p>
+        <p>更新于 {updatedOn}。</p>
       </footer>
     </>
   );

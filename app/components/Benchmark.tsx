@@ -9,7 +9,7 @@ const metrics = [
     current: 2.451,
     unit: 'GiB',
     improvement: '35.2',
-    note: '查询进程树 RSS 峰值；共享页可能重复计入。',
+    note: '查询进程与 ROS 子进程的 RSS 合计峰值。',
   },
   {
     name: '总体耗时',

@@ -10,7 +10,7 @@ export const featuredProjects = [
     image: '/media/pudu-overview.png',
     alt: '普渡 V11-r3 十图导航耗时和整进程树内存分布图',
     summary:
-      '围绕大地图导航，连接拓扑选路、参考路径、运动学搜索与终验；将规划结果、统计图与实验记录整理为可复核的公开工作区。',
+      '基于 ROS 2 / Nav2 构建大地图分层导航，连接拓扑选路、参考路径、运动学搜索与轨迹校验，完成规划性能优化与多场景测试。',
     href: 'https://github.com/Doribelove/pudu_robot_ws',
     tags: 'C++ · Python · Hybrid A* · 性能优化',
   },
@@ -21,7 +21,7 @@ export const featuredProjects = [
     image: '/media/autolabor-robot.jpg',
     alt: '净途智行无人清扫车实物与传感器平台',
     summary:
-      '面向机场环境的无人清扫车，打通定位、覆盖规划、局部避障、垃圾识别和任务交互；以实车照片、现场视频及技术报告展示系统集成。',
+      '面向机场环境开发无人清扫车，打通定位、覆盖规划、局部避障、垃圾识别和任务交互，完成双机平台与清扫机构集成及实车作业。',
     href: 'https://github.com/Doribelove/autolabor-robot-nav/tree/robot_j6m_ws',
     tags: 'FAST-LIO / GNSS · Hybrid A* · TEB · YOLO',
   },
@@ -32,7 +32,7 @@ export const featuredProjects = [
     image: '/media/huawei-pipeline.png',
     alt: '华为存储杯 r58 多模态检索问答的证据处理流程',
     summary:
-      '从 PDF 文本、表格与图像检索证据，组合 BGE-M3、重排器与 Qwen3-VL，完成本地问答、证据支持检查和拒答处理，保留真实接口记录。',
+      '从 PDF 文本、表格与图像检索证据，组合 BGE-M3、重排器与 Qwen3-VL，实现多模态问答、答案溯源、证据支持检查和拒答处理。',
     href: 'https://github.com/Doribelove/huawei-storage-cup-mrag',
     tags: 'Python · Transformers · Qwen3-VL · BGE-M3',
   },

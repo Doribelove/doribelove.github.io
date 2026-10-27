@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://doribelove.github.io'),
   title: '李永祺 YongQi Li · 机器人导航与算法工程',
   description:
-    '李永祺（Doribelove）的在线简历与项目记录：电子科技大学、IROS 2026 论文、机器人导航、华为存储杯多模态问答、地平线挑战杯实车项目及开源贡献。',
+    '李永祺（Doribelove）的在线简历与项目作品集：电子科技大学、IROS 2026 论文、机器人导航、华为存储杯多模态问答、地平线挑战杯实车项目及开源贡献。',
   alternates: { canonical: '/' },
   openGraph: {
     title: '李永祺 YongQi Li · 机器人导航与算法工程',

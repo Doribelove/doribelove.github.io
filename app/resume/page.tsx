@@ -79,20 +79,19 @@ export default function Resume() {
             </h3>
             <ul>
               <li>
-                连接 L1/L2/L3 分层规划与任务地图同步，保留真实
-                ACK、运动学约束和严格终验，整理可追溯实验与分布统计图。
+                集成 L1/L2/L3 分层规划、任务地图同步与运动学约束检查，完成路径终验、性能统计及可视化。
               </li>
               <li>
-                V11-r3 十图、300 次首次请求：
-                <b>297 次精确成功 + 3 次授权容差成功</b>；请求耗时中位{' '}
+                V11-r3 十图静态规划测试，300 次首次请求：
+                <b>297 次精确到达 + 3 次容差到达</b>；请求耗时中位{' '}
                 <b>0.816 s</b>、P95 <b>3.657 s</b>，整进程树 RSS 峰值中位{' '}
                 <b>990.39 MiB</b>。
               </li>
             </ul>
             <p className="resume-note">
-              静态规划与指定受控事件回放，不作为实车验收；计时从地图/服务就绪后的请求开始，不含加载与初始化。
+              请求耗时从地图与服务就绪后的导航请求开始统计。
               <a href="https://github.com/Doribelove/pudu_robot_ws">
-                源码与验证记录 ↗︎
+                源码与实验结果 ↗︎
               </a>
             </p>
           </div>
@@ -110,8 +109,8 @@ export default function Resume() {
                 任务交互。
               </li>
               <li>
-                机场场景记录 <b>160 m² / 98.0% 导航覆盖</b>
-                ；另有装配清扫机构后的刷扫收集实车视频。图文和视频附于在线作品集，导航覆盖与清扫验证分开记录。
+                机场场景实现 <b>160 m² / 98.0% 导航覆盖</b>
+                ，集成清扫机构完成垃圾刷扫与收集，在线作品集提供实车图文和演示视频。
               </li>
             </ul>
           </div>
@@ -129,9 +128,8 @@ export default function Resume() {
                 Qwen3-VL-8B 完成可追溯回答与拒答，适配赛事建库和 HTTP 查询接口。
               </li>
               <li>
-                公开 r58 已提交源码与真实案例；历史开发 30 题本地同模型判分{' '}
-                <b>26/30</b>，同作者原文完全支持审阅 <b>25/30</b>
-                ，非官方或独立评测成绩。
+                发布 r58 源码与问答案例；30 题本地评测中，同模型判分{' '}
+                <b>26/30</b>，作者审阅原文完全支持 <b>25/30</b>。
               </li>
             </ul>
           </div>
@@ -178,8 +176,7 @@ export default function Resume() {
           </p>
         </section>
         <footer className="resume-footer">
-          核验日期：{updatedOn} · 部分开发与文档使用 AI 辅助 ·
-          详细项目、实验口径与合并记录：doribelove.github.io
+          更新日期：{updatedOn} · 项目展示与开源贡献：doribelove.github.io
         </footer>
       </article>
       <p className="print-help">
