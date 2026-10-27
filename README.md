@@ -42,7 +42,7 @@ npm run build
 - `app/content.ts`：联系方式、已合并贡献和技术能力。
 - `app/page.tsx`：主页结构与历史实验。
 - `app/featured.tsx`、`app/projects/page.tsx`：核心完整项目、图文和演示。
-- `app/autolabor-demos.tsx`：净途智行的任务流程、语义导航与多场景覆盖视频。
+- `app/autolabor-demos.tsx`：净途智行的语义导航与多场景覆盖视频。
 - `app/publications.tsx`：论文题目、完整作者、角色、状态与链接。
 - `public/papers/`：期刊作者稿及首页。
 - `public/media/`：来自项目仓库与挑战杯材料的精选媒体。

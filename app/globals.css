@@ -1550,9 +1550,6 @@ a.text-link:hover,
   gap: 22px;
   align-items: start;
 }
-.demo-grid--workflow {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
 .demo-grid .work-video {
   margin: 0;
 }
@@ -1563,9 +1560,6 @@ a.text-link:hover,
 .demo-grid video {
   aspect-ratio: 2 / 1;
   object-fit: contain;
-}
-.demo-grid--workflow video {
-  aspect-ratio: 4 / 3;
 }
 .demo-grid--portrait video {
   aspect-ratio: 5 / 7;
@@ -1598,8 +1592,7 @@ a.text-link:hover,
   .publication-grid,
   .work-gallery,
   .work-gallery.three,
-  .demo-grid,
-  .demo-grid--workflow {
+  .demo-grid {
     grid-template-columns: 1fr;
   }
   .featured-image {

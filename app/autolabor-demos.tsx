@@ -1,24 +1,5 @@
 const demoGroups = [
   {
-    id: 'workflow',
-    title: '完整任务流程',
-    description:
-      '从语音任务解析开始，衔接作业边界设置、垃圾扫描、路径规划与避障续扫。',
-    layout: 'workflow',
-    demos: [
-      {
-        file: 'autolabor-workflow',
-        title: '自主清扫流程',
-        description: '俯视流程动画呈现任务接收、区域圈选、垃圾扫描、规划与清扫执行。',
-      },
-      {
-        file: 'autolabor-task-planning',
-        title: '语音指令与任务分解',
-        description: '围绕 Qwen 8B 组织任务解析、步骤分解与多步作业流程。',
-      },
-    ],
-  },
-  {
     id: 'semantics',
     title: '场景语义导航',
     description: '在三维场景中展示通行规则与车辆路径、速度和启停状态的联动。',
