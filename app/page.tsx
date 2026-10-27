@@ -116,12 +116,12 @@ export default function Home() {
         跳到主要内容
       </a>
       <header className="site-header shell">
-        <a className="brand" href="#top" aria-label="李永祺，返回首页">
+        <a className="brand" href="#top" aria-label="YongQi Li，返回首页">
           <span className="brand-mark">
             D<span>.</span>
           </span>
           <span>
-            YONGQI LI <small>李永祺</small>
+            YONGQI LI <small>Doribelove</small>
           </span>
         </a>
         <nav aria-label="页面导航">
@@ -140,7 +140,7 @@ export default function Home() {
               <span className="status-dot" /> ROBOTICS / PLANNING / SYSTEMS
             </p>
             <p className="hero-name">
-              你好，我是李永祺 <span>YongQi Li · Dori</span>
+              你好，我是 YongQi Li <span>Dori</span>
             </p>
             <h1>
               构建机器人系统，
@@ -214,7 +214,7 @@ export default function Home() {
           </a>
           <Link href="/projects/">
             <strong>
-              03<span> / STORIES</span>
+              04<span> / PROJECTS</span>
             </strong>
             <p>
               核心完整项目 <ArrowUpRight size={15} aria-hidden="true" />
@@ -408,7 +408,7 @@ export default function Home() {
       </main>
       <footer className="site-footer shell">
         <div>
-          <span>© 2026 李永祺 / Dori</span>
+          <span>© 2026 YongQi Li / Dori</span>
           <a href="#top">返回顶部 ↑</a>
         </div>
         <p>更新于 {updatedOn}。</p>

@@ -18,12 +18,23 @@ export const featuredProjects = [
     id: 'autolabor',
     name: '净途智行 · 国产无人清扫车系统',
     category: '地平线挑战杯 / J6M + AGX',
-    image: '/media/autolabor-robot.jpg',
-    alt: '净途智行无人清扫车实物与传感器平台',
+    image: '/media/autolabor-airport-vehicle.jpg',
+    alt: '净途智行重新装配后的无人清扫车在机场机坪测试',
     summary:
-      '以 J6M + AGX 构建自主清扫系统，连接语音任务分解、三路环视感知、语义导航与清扫执行，展示多场景覆盖规划和机场实车作业。',
+      '以 J6M + AGX 连接感知、规划、交互与清扫执行。在机场机坪与滑行道开展四时段测试，取得 24 次回收成功、12 次避障成功。',
     href: 'https://github.com/Doribelove/autolabor-robot-nav/tree/robot_j6m_ws',
     tags: 'FAST-LIO / GNSS · Hybrid A* / TEB · BEV · Qwen',
+  },
+  {
+    id: 'cube',
+    name: '魔方机器人 · 双臂视觉复原',
+    category: '机器人竞赛 / 国家级二等奖',
+    image: '/media/cube-demo-poster.jpg',
+    alt: '双臂魔方机器人执行实体魔方复原',
+    summary:
+      '四路视觉识别、Two-Phase 求解与双臂协同执行，7 秒完成识别、解算和还原。获 2024 年中国高校智能机器人创意大赛国家级二等奖，总排名 9/55。',
+    href: 'https://github.com/Doribelove/robot_mofang',
+    tags: 'Python · OpenCV · Two-Phase · ODrive · Arduino',
   },
   {
     id: 'huawei',

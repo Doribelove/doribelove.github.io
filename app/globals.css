@@ -1320,7 +1320,7 @@ a.text-link:hover,
 /* Research and project evidence, October 2026. */
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 .featured-card {
@@ -1333,11 +1333,14 @@ a.text-link:hover,
 }
 .featured-image {
   display: block;
+  position: relative;
   aspect-ratio: 8 / 5;
   background: #e8ecdf;
   border-bottom: 1px solid var(--line);
 }
 .featured-image img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -1550,6 +1553,14 @@ a.text-link:hover,
   gap: 22px;
   align-items: start;
 }
+.airport-video-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 30px 0 42px;
+  row-gap: 30px;
+}
+.demo-grid.airport-video-grid video {
+  aspect-ratio: 16 / 9;
+}
 .demo-grid .work-video {
   margin: 0;
 }
@@ -1563,6 +1574,17 @@ a.text-link:hover,
 }
 .demo-grid--portrait video {
   aspect-ratio: 5 / 7;
+}
+.cube-video,
+.cube-award {
+  max-width: 850px;
+  margin-inline: auto;
+}
+.cube-video video {
+  object-fit: contain;
+}
+.cube-award {
+  max-width: 640px;
 }
 .resume-publication + .resume-publication {
   margin-top: 10px;
@@ -1592,7 +1614,8 @@ a.text-link:hover,
   .publication-grid,
   .work-gallery,
   .work-gallery.three,
-  .demo-grid {
+  .demo-grid,
+  .airport-video-grid {
     grid-template-columns: 1fr;
   }
   .featured-image {
@@ -1656,16 +1679,16 @@ a.text-link:hover,
     align-items: flex-end;
   }
   .resume-paper section {
-    margin-top: 10px;
+    margin-top: 8px;
   }
   .resume-paper p,
   .resume-paper li {
     font-size: 9pt;
-    line-height: 1.55;
+    line-height: 1.45;
   }
   .resume-paper h2 {
     font-size: 11pt;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   .resume-paper h3 {
     font-size: 10pt;
@@ -1676,7 +1699,7 @@ a.text-link:hover,
     font-size: 8pt;
   }
   .resume-project + .resume-project {
-    margin-top: 8px;
+    margin-top: 6px;
   }
   .resume-project,
   .resume-contributions p {

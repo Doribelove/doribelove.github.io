@@ -12,7 +12,7 @@ import {
 import { publications } from '../publications';
 
 export const metadata: Metadata = {
-  title: '李永祺 · 机器人导航与算法工程简历',
+  title: 'YongQi Li · 机器人导航与算法工程简历',
   alternates: { canonical: '/resume/' },
 };
 
@@ -27,7 +27,7 @@ export default function Resume() {
         <header className="resume-header">
           <div>
             <h1>
-              李永祺 <span>YongQi Li</span>
+              YongQi Li <span>Dori</span>
             </h1>
             <p>机器人导航 · 路径规划 · 多模态检索问答</p>
           </div>
@@ -105,16 +105,24 @@ export default function Resume() {
             </h3>
             <ul>
               <li>
-                负责双机系统集成，J6M 承担定位建图、覆盖规划、避障与控制仲裁，AGX
-                承担模型推理、语音解析及 Qt 交互；集成 FAST-LIO / GNSS、Hybrid A* / TEB、三路环视感知与 BEV 坐标映射。
+                基于 J6M + AGX 集成 FAST-LIO / GNSS、Hybrid A* / TEB、三路环视与 BEV 映射，完成定位、感知、规划和清扫控制。
               </li>
               <li>
-                接入 Qwen 8B 任务解析与分解，以三维场景演示斑马线减速、靠右行驶、信号灯响应及工厂、停车场、商场覆盖规划。
+                接入 Qwen 8B 任务分解与 Qt 交互，演示场景语义导航和工厂、停车场、商场覆盖规划。
               </li>
               <li>
-                机场场景实现 <b>160 m² / 98.0% 导航覆盖</b>
-                ，集成边刷、滚刷与收集箱完成垃圾刷扫和收集，在线作品集提供场景导航与实车演示。
+                机场导航覆盖 <b>160 m² / 98.0%</b>；机坪与滑行道四时段测试取得 <b>24 次回收成功、12 次避障成功</b>，展示实车视频与数据回放。
               </li>
+            </ul>
+          </div>
+          <div className="resume-project">
+            <h3>
+              <a href="https://doribelove.github.io/projects/#cube">魔方机器人 · 双臂视觉复原</a>{' '}
+              <span>Python / OpenCV / Two-Phase / ODrive / Arduino</span>
+            </h3>
+            <ul>
+              <li>实现四路视觉六面识别、Two-Phase 求解、机械代价动作优化与双臂夹爪协同，<b>7 秒完成识别、解算和还原</b>。</li>
+              <li>获 <b>2024 年第七届中国高校智能机器人创意大赛国家级二等奖</b>，总排名 <b>9/55</b>。</li>
             </ul>
           </div>
           <div className="resume-project">

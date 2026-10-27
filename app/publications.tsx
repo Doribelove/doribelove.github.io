@@ -29,7 +29,7 @@ export const publications = [
   {
     id: 'airport-path-planning',
     title: '通航机场动态环境下无人车路径规划方法',
-    authors: '李永祺，魏明珠（通讯作者），曾珍妮，张景茹，李辉，龚敏，董巾航',
+    authors: 'YongQi Li，魏明珠（通讯作者），曾珍妮，张景茹，李辉，龚敏，董巾航',
     status: '《系统工程与电子技术》· 已录用，待发表（预计 2026 年 11 月）',
     role: '第一作者',
     summary:

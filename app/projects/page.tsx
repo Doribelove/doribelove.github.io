@@ -3,21 +3,20 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
 import AutolaborDemos from '../autolabor-demos';
+import AirportDemos from '../airport-demos';
+import CubeProject from '../cube-project';
 
 export const metadata: Metadata = {
-  title: '核心完整项目与演示 · 李永祺',
+  title: '核心完整项目与演示 · YongQi Li',
   description:
-    '普渡分层规划、净途智行地平线挑战杯实车实践和华为存储杯多模态问答的图文、视频与源码。',
+    '普渡分层规划、净途智行机场实车测试、双臂魔方机器人和华为存储杯多模态问答的图文、视频与源码。',
   alternates: { canonical: '/projects/' },
 };
 
 const photoSizes: Record<string, [number, number]> = {
-  '/media/autolabor-airport.jpg': [1260, 692],
-  '/media/autolabor-console.jpg': [1724, 921],
+  '/media/autolabor-airport-field.jpg': [1600, 900],
+  '/media/autolabor-airport-vehicle.jpg': [1600, 900],
   '/media/autolabor-coverage.jpg': [1800, 944],
-  '/media/autolabor-demo-poster.jpg': [960, 540],
-  '/media/autolabor-hardware.jpg': [1600, 1067],
-  '/media/autolabor-robot.jpg': [1600, 1067],
   '/media/huawei-http-log.png': [1400, 1160],
   '/media/huawei-pipeline.png': [1400, 780],
   '/media/pudu-overview.png': [2210, 1615],
@@ -55,11 +54,12 @@ export default function Projects() {
     <>
       <header className="site-header shell">
         <Link className="brand" href="/">
-          ← 李永祺 / YongQi Li
+          ← YongQi Li
         </Link>
         <nav aria-label="项目导航">
           <a href="#pudu">普渡</a>
           <a href="#autolabor">挑战杯</a>
+          <a href="#cube">魔方</a>
           <a href="#huawei">华为</a>
           <Link href="/resume/">简历</Link>
         </nav>
@@ -68,7 +68,7 @@ export default function Projects() {
         <div className="work-intro">
           <p className="eyebrow">CORE PROJECTS / DEMOS</p>
           <h1>核心完整项目</h1>
-          <p>机器人导航、实车清扫与多模态问答：项目成果、现场演示与源码。</p>
+          <p>机器人导航、实车清扫、魔方复原与多模态问答：项目成果、现场演示与源码。</p>
         </div>
 
         <section className="work-section" id="pudu">
@@ -159,48 +159,32 @@ export default function Projects() {
             </div>
           </div>
           <div className="project-links">
+            <a href="#autolabor-field">查看机场实车测试 ↓</a>
             <a href="#autolabor-demos">查看系统与场景演示 ↓</a>
-            <a href="#autolabor-field">查看实车清扫 ↓</a>
           </div>
-          <AutolaborDemos />
-          <h3 className="demo-section-title" id="autolabor-field">机场实车与清扫执行</h3>
+          <h3 className="demo-section-title" id="autolabor-field">机场实车测试</h3>
+          <p className="demo-group-intro">
+            2026 年 10 月 13–17 日，重新装配后的车辆在机坪与滑行道开展回收和避障测试，覆盖黎明、白天、黄昏与夜晚。
+          </p>
+          <div className="work-stats">
+            <div><strong>24 次</strong><span>回收测试成功</span></div>
+            <div><strong>12 次</strong><span>避障测试成功</span></div>
+            <div><strong>4 个时段</strong><span>黎明 · 白天 · 黄昏 · 夜晚</span></div>
+          </div>
           <div className="work-gallery">
             <Photo
-              src="/media/autolabor-robot.jpg"
-              alt="净途智行无人清扫车实物"
-              caption="实车平台：传感器、计算设备与清扫执行机构集成。"
+              src="/media/autolabor-airport-vehicle.jpg"
+              alt="重新装配后的净途智行无人清扫车在机场机坪上的近景"
+              caption="机场测试车辆：定位与感知设备、计算平台和清扫机构。"
             />
             <Photo
-              src="/media/autolabor-airport.jpg"
-              alt="无人清扫车在机场试验场景中运行"
-              caption="无人清扫车在机场场景开展导航测试。"
+              src="/media/autolabor-airport-field.jpg"
+              alt="无人清扫车在航站楼前的机坪开展测试"
+              caption="航站楼前的机坪实车测试。"
             />
           </div>
-          <figure className="work-video">
-            <video
-              controls
-              playsInline
-              preload="none"
-              poster="/media/autolabor-demo-poster.jpg"
-              aria-label="净途智行实车垃圾刷扫收集演示"
-            >
-              <source src="/media/autolabor-demo.mp4" type="video/mp4" />
-              <track
-                kind="captions"
-                src="/media/autolabor-demo-zh.vtt"
-                srcLang="zh"
-                label="中文说明"
-                default
-              />
-              浏览器不支持视频播放，请使用下方下载链接。
-            </video>
-            <figcaption>
-              实车垃圾刷扫与收集 · 正常速度 20.5 秒节选。
-              <a href="/media/autolabor-demo.mp4" download>
-                下载视频 ↗
-              </a>
-            </figcaption>
-          </figure>
+          <AirportDemos />
+          <h3 className="demo-section-title">区域覆盖导航</h3>
           <div className="work-stats">
             <div>
               <strong>160 m²</strong>
@@ -216,23 +200,12 @@ export default function Projects() {
             </div>
           </div>
           <p className="scope-note">导航覆盖测试数据来自挑战杯技术报告 v7。</p>
-          <div className="work-gallery three">
-            <Photo
-              src="/media/autolabor-hardware.jpg"
-              alt="J6M 与 Jetson 及传感器硬件集成"
-              caption="硬件与接口集成。"
-            />
-            <Photo
-              src="/media/autolabor-coverage.jpg"
-              alt="机场导航覆盖进度：160.0/163.3 平方米，98.0%"
-              caption="机场场景导航覆盖：160.0 / 163.3 m²，覆盖率 98.0%。"
-            />
-            <Photo
-              src="/media/autolabor-console.jpg"
-              alt="机器人任务交互和调试界面"
-              caption="任务交互与调试界面。"
-            />
-          </div>
+          <Photo
+            src="/media/autolabor-coverage.jpg"
+            alt="机场导航覆盖进度：160.0/163.3 平方米，98.0%"
+            caption="机场场景导航覆盖：160.0 / 163.3 m²，覆盖率 98.0%。"
+          />
+          <AutolaborDemos />
           <div className="project-links">
             <a
               href="https://github.com/Doribelove/autolabor-robot-nav/tree/robot_j6m_ws"
@@ -244,9 +217,11 @@ export default function Projects() {
           </div>
         </section>
 
+        <CubeProject />
+
         <section className="work-section" id="huawei">
           <div className="work-heading">
-            <span className="eyebrow">03 / 多模态检索问答</span>
+            <span className="eyebrow">04 / 多模态检索问答</span>
             <h2>不二鸟 · 华为存储杯 MRAG</h2>
             <p>r58 · Transformers / Qwen3-VL-8B · BGE-M3 / BGE reranker</p>
           </div>

@@ -1,4 +1,4 @@
-# 李永祺 · 机器人导航与算法工程
+# YongQi Li · 机器人导航与算法工程
 
 **直接打开网页简历：[https://doribelove.github.io/](https://doribelove.github.io/)**
 
@@ -8,7 +8,7 @@
 - [GitHub 个人资料](https://github.com/Doribelove)
 - [3YD-V5-r11 本地静态实验摘要](https://doribelove.github.io/evidence/3yd-v5-r11.md)
 
-这是一份中文在线简历与项目作品集，包括两篇论文、三项核心完整项目、实车与三维场景演示、规划性能对照、26 项上游已合并贡献、技术能力和联系方式。内容更新于 2026-10-27，开源贡献统计截至 2026-10-27，覆盖 11 个上游开源项目。
+这是一份中文在线简历与项目作品集，包括两篇论文、四项核心完整项目、实车与三维场景演示、规划性能对照、26 项上游已合并贡献、技术能力和联系方式。内容更新于 2026-10-27，开源贡献统计截至 2026-10-27，覆盖 11 个上游开源项目。
 
 ## 如何查看
 
@@ -43,6 +43,8 @@ npm run build
 - `app/page.tsx`：主页结构与历史实验。
 - `app/featured.tsx`、`app/projects/page.tsx`：核心完整项目、图文和演示。
 - `app/autolabor-demos.tsx`：净途智行的语义导航与多场景覆盖视频。
+- `app/airport-demos.tsx`：2026 年 10 月机场回收、避障实车视频与同步数据回放。
+- `app/cube-project.tsx`：双臂魔方机器人、竞赛成果与完整演示视频。
 - `app/publications.tsx`：论文题目、完整作者、角色、状态与链接。
 - `public/papers/`：期刊作者稿及首页。
 - `public/media/`：来自项目仓库与挑战杯材料的精选媒体。
