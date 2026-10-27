@@ -4,6 +4,7 @@ import PrintButton from '../components/PrintButton';
 import {
   contributions,
   contributionProjectCount,
+  representativeContributions,
   email,
   github,
   updatedOn,
@@ -139,21 +140,17 @@ export default function Resume() {
             已合并的开源贡献{' '}
             <span>
               {contributions.length} 个 PR · {contributionProjectCount}{' '}
-              个上游项目，以下精选 6 项
+              个上游项目，以下精选 {representativeContributions.length} 项
             </span>
           </h2>
           <div className="resume-contributions">
-            {contributions
-              .filter((item) =>
-                [706, 669, 224, 957, 2422, 4726].includes(item.number),
-              )
-              .map((item) => (
-                <p key={item.href}>
-                  <b>{item.project}</b>
-                  <span>{item.title}</span>
-                  <a href={item.href}>#{item.number} ↗︎</a>
-                </p>
-              ))}
+            {representativeContributions.map((item) => (
+              <p key={item.href}>
+                <b>{item.project}</b>
+                <span>{item.title}</span>
+                <a href={item.href}>#{item.number} ↗︎</a>
+              </p>
+            ))}
           </div>
           <p className="resume-note">
             <a href="https://doribelove.github.io/#opensource">

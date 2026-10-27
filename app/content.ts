@@ -1,9 +1,28 @@
 export const updatedOn = '2026.10.27';
-export const contributionsAsOf = '2026.10.16';
+export const contributionsAsOf = '2026.10.27';
+export const contributionArchive = '/evidence/contributions-20261027.json';
 export const github = 'https://github.com/Doribelove';
 export const email = 'doribelove@gmail.com';
 
 export const contributions = [
+  {
+    project: 'REA',
+    number: 5363,
+    title: '修复 Mach-O 动态库路径解析',
+    detail:
+      '让 dyld 路径展开正确保留换行符和 Unicode 行分隔符，恢复依赖库与 rpath 的解析，并补充核心解析与 CLI 回归测试。',
+    href: 'https://github.com/morluto/rea/pull/5363',
+    mergedAt: '2026-10-22T21:24:03Z',
+  },
+  {
+    project: 'SpatialMath',
+    number: 232,
+    title: '修复三维直线关系的尺度敏感问题',
+    detail:
+      '归一化 Plücker 方向与矩量，修正平行、相交判断及公垂线构造，补充缩放、反向与近似平行场景的回归测试。',
+    href: 'https://github.com/rai-opensource/spatialmath-python/pull/232',
+    mergedAt: '2026-10-16T13:43:48Z',
+  },
   {
     project: 'Robotics Toolbox',
     number: 706,
@@ -218,6 +237,17 @@ export const contributions = [
     mergedAt: '2026-09-14T05:44:40Z',
   },
 ];
+
+export const representativeContributions = contributions.filter((item) =>
+  [
+    'https://github.com/morluto/rea/pull/5363',
+    'https://github.com/rai-opensource/spatialmath-python/pull/232',
+    'https://github.com/petercorke/robotics-toolbox-python/pull/706',
+    'https://github.com/hgrecco/pint/pull/2422',
+    'https://github.com/pydata/sparse/pull/957',
+    'https://github.com/github/spec-kit/pull/4726',
+  ].includes(item.href),
+);
 
 export const skills = [
   {

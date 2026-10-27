@@ -13,6 +13,7 @@ import { Publications } from './publications';
 import {
   contributions,
   contributionsAsOf,
+  contributionArchive,
   contributionProjectCount,
   email,
   github,
@@ -326,8 +327,8 @@ export default function Home() {
               查看全部上游合并记录 ↗
             </a>
             {' · '}
-            <a href="/evidence/contributions-20261016.json" download>
-              24 项贡献详情（JSON）
+            <a href={contributionArchive} download>
+              {contributions.length} 项贡献详情（JSON）
             </a>
           </p>
         </section>

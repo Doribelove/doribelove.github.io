@@ -8,7 +8,7 @@ export const publications = [
     authors:
       'Jingru Zhang, Mingzhu Wei, Yongqi Li, Zhenni Zeng, Min Gong, Hui Li',
     status: 'IROS 2026 · 论文编号 775',
-    role: '学生二作 · 总作者序第 3',
+    role: '学生二作',
     summary:
       '面向拥挤动态环境的分层自主导航：将子目标分布限制在与全局可达性一致的安全区域内，并以探索–重规划指数（ERI）联合调节采样分布与重规划时机。通过 Arena-3D 多场景实验与消融分析验证框架，项目页提供完整演示及实机部署视频。',
     links: [
