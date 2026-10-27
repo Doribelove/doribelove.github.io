@@ -1522,6 +1522,54 @@ a.text-link:hover,
   flex-wrap: wrap;
   margin-top: 26px;
 }
+.work-text-card > p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.autolabor-demos {
+  margin: 42px 0;
+  scroll-margin-top: 24px;
+}
+.demo-group + .demo-group {
+  margin-top: 42px;
+}
+.demo-section-title {
+  font-size: 23px;
+  margin: 30px 0 10px;
+  scroll-margin-top: 24px;
+}
+.demo-group-intro {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+.demo-grid--workflow {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.demo-grid .work-video {
+  margin: 0;
+}
+.demo-grid h4 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+.demo-grid video {
+  aspect-ratio: 2 / 1;
+  object-fit: contain;
+}
+.demo-grid--workflow video {
+  aspect-ratio: 4 / 3;
+}
+.demo-grid--portrait video {
+  aspect-ratio: 5 / 7;
+}
 .resume-publication + .resume-publication {
   margin-top: 10px;
 }
@@ -1549,7 +1597,9 @@ a.text-link:hover,
   .featured-grid,
   .publication-grid,
   .work-gallery,
-  .work-gallery.three {
+  .work-gallery.three,
+  .demo-grid,
+  .demo-grid--workflow {
     grid-template-columns: 1fr;
   }
   .featured-image {
@@ -1607,17 +1657,18 @@ a.text-link:hover,
   }
   .resume-header {
     flex-direction: row;
+    padding-bottom: 12px;
   }
   .resume-header > div:last-child {
     align-items: flex-end;
   }
   .resume-paper section {
-    margin-top: 12px;
+    margin-top: 10px;
   }
   .resume-paper p,
   .resume-paper li {
-    font-size: 9.3pt;
-    line-height: 1.65;
+    font-size: 9pt;
+    line-height: 1.55;
   }
   .resume-paper h2 {
     font-size: 11pt;

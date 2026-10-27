@@ -70,7 +70,7 @@ export default function Resume() {
           ))}
         </section>
         <section>
-          <h2>项目经历</h2>
+          <h2>核心完整项目</h2>
           <div className="resume-project">
             <h3>
               <a href="https://doribelove.github.io/projects/#pudu">
@@ -99,19 +99,21 @@ export default function Resume() {
           <div className="resume-project">
             <h3>
               <a href="https://doribelove.github.io/projects/#autolabor">
-                净途智行 · 地平线挑战杯实车项目
+                净途智行 · 国产无人清扫车系统
               </a>{' '}
-              <span>ROS Noetic / FAST-LIO / Hybrid A* / TEB</span>
+              <span>项目负责人 / 地平线挑战杯 / J6M + AGX</span>
             </h3>
             <ul>
               <li>
-                在 J6M + Jetson 双机平台集成 FAST-LIO / ICP 或双天线
-                GNSS、条带覆盖、Hybrid A* / TEB、YOLO11s-GAM 与语音 / Qt
-                任务交互。
+                负责双机系统集成，J6M 承担定位建图、覆盖规划、避障与控制仲裁，AGX
+                承担模型推理、语音解析及 Qt 交互；集成 FAST-LIO / GNSS、Hybrid A* / TEB、三路环视感知与 BEV 坐标映射。
+              </li>
+              <li>
+                接入 Qwen 8B 任务解析与分解，以三维场景演示斑马线减速、靠右行驶、信号灯响应及工厂、停车场、商场覆盖规划。
               </li>
               <li>
                 机场场景实现 <b>160 m² / 98.0% 导航覆盖</b>
-                ，集成清扫机构完成垃圾刷扫与收集，在线作品集提供实车图文和演示视频。
+                ，集成边刷、滚刷与收集箱完成垃圾刷扫和收集，在线作品集提供完整流程与实车演示。
               </li>
             </ul>
           </div>

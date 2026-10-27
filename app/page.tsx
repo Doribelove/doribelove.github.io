@@ -217,7 +217,7 @@ export default function Home() {
               03<span> / STORIES</span>
             </strong>
             <p>
-              近期项目与演示 <ArrowUpRight size={15} aria-hidden="true" />
+              核心完整项目 <ArrowUpRight size={15} aria-hidden="true" />
             </p>
           </Link>
           <div className="fact-context">
@@ -231,8 +231,8 @@ export default function Home() {
         <section className="section shell" id="projects">
           <div className="section-heading">
             <div>
-              <span className="eyebrow">01 / SELECTED PROJECTS</span>
-              <h2>把问题做深，把系统接通。</h2>
+              <span className="eyebrow">01 / CORE PROJECTS</span>
+              <h2>核心完整项目</h2>
             </div>
             <p>
               从分层规划到部署链路，

@@ -2,9 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { ArrowUpRight } from 'lucide-react';
+import AutolaborDemos from '../autolabor-demos';
 
 export const metadata: Metadata = {
-  title: '项目图文与演示 · 李永祺',
+  title: '核心完整项目与演示 · 李永祺',
   description:
     '普渡分层规划、净途智行地平线挑战杯实车实践和华为存储杯多模态问答的图文、视频与源码。',
   alternates: { canonical: '/projects/' },
@@ -65,8 +66,8 @@ export default function Projects() {
       </header>
       <main className="shell work-page">
         <div className="work-intro">
-          <p className="eyebrow">PROJECTS / DEMOS</p>
-          <h1>从代码到现场。</h1>
+          <p className="eyebrow">CORE PROJECTS / DEMOS</p>
+          <h1>核心完整项目</h1>
           <p>机器人导航、实车清扫与多模态问答：项目成果、现场演示与源码。</p>
         </div>
 
@@ -137,15 +138,32 @@ export default function Projects() {
 
         <section className="work-section" id="autolabor">
           <div className="work-heading">
-            <span className="eyebrow">02 / 竞赛实战</span>
-            <h2>净途智行 · 地平线挑战杯</h2>
-            <p>J6M + Jetson · ROS Noetic · 无人清扫车</p>
+            <span className="eyebrow">02 / 地平线挑战杯 · 项目负责人</span>
+            <h2>净途智行 · 国产无人清扫车系统</h2>
+            <p>J6M + Jetson AGX · ROS Noetic · 感知、规划与清扫执行</p>
           </div>
           <p className="work-lead">
-            将机器人导航、垃圾感知与清扫任务接入同一套实车系统。定位支持
-            FAST-LIO / ICP 或双天线 GNSS；覆盖与转场采用条带规划、Hybrid A* 和
-            TEB，并集成 YOLO11s-GAM、语音和 Qt 任务交互。
+            面向智慧环卫，将任务输入、场景理解、覆盖规划和清扫执行连接为完整系统。
+            J6M 承担定位建图、覆盖规划、局部避障与控制仲裁，Jetson AGX
+            承担模型推理、语音解析和 Qt 交互。定位支持 FAST-LIO / ICP 或双天线 GNSS，
+            规划采用条带覆盖、Hybrid A* 和 TEB，配合边刷、滚刷与收集箱完成实车清扫。
           </p>
+          <div className="work-gallery">
+            <div className="work-text-card">
+              <h3>感知与任务理解</h3>
+              <p>三路广角环视与前视深度相机提供视觉观测，经畸变矫正、垃圾识别和 BEV 坐标映射生成地面目标。语音输入结合 Qwen 8B 解析任务，组织区域覆盖、定点和扫描清扫。</p>
+            </div>
+            <div className="work-text-card">
+              <h3>规划与作业执行</h3>
+              <p>结合垃圾目标分布安排作业顺序，以条带覆盖、转场规划与局部避障组织车辆行进。三维场景演示斑马线减速、靠右行驶、信号灯响应及多场景覆盖规划。</p>
+            </div>
+          </div>
+          <div className="project-links">
+            <a href="#autolabor-demos">查看系统与场景演示 ↓</a>
+            <a href="#autolabor-field">查看实车清扫 ↓</a>
+          </div>
+          <AutolaborDemos />
+          <h3 className="demo-section-title" id="autolabor-field">机场实车与清扫执行</h3>
           <div className="work-gallery">
             <Photo
               src="/media/autolabor-robot.jpg"

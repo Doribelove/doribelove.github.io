@@ -16,14 +16,14 @@ export const featuredProjects = [
   },
   {
     id: 'autolabor',
-    name: '净途智行 · 地平线挑战杯',
-    category: '竞赛实战 / J6M + Jetson',
+    name: '净途智行 · 国产无人清扫车系统',
+    category: '地平线挑战杯 / J6M + AGX',
     image: '/media/autolabor-robot.jpg',
     alt: '净途智行无人清扫车实物与传感器平台',
     summary:
-      '面向机场环境开发无人清扫车，打通定位、覆盖规划、局部避障、垃圾识别和任务交互，完成双机平台与清扫机构集成及实车作业。',
+      '以 J6M + AGX 构建自主清扫系统，连接语音任务分解、三路环视感知、语义导航与清扫执行，展示多场景覆盖规划和机场实车作业。',
     href: 'https://github.com/Doribelove/autolabor-robot-nav/tree/robot_j6m_ws',
-    tags: 'FAST-LIO / GNSS · Hybrid A* · TEB · YOLO',
+    tags: 'FAST-LIO / GNSS · Hybrid A* / TEB · BEV · Qwen',
   },
   {
     id: 'huawei',
