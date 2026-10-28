@@ -108,6 +108,21 @@ export default function DroneProject() {
           <p>控制机械舵机执行抓取，将飞行任务与末端动作衔接，完成物资自主抓取和定点投放。</p>
         </div>
       </div>
+      <h3 className="demo-section-title" id="drone-field">实机测试 · 三角形目标识别与悬停</h3>
+      <p className="work-lead">
+        室内实机测试，展示三角形目标识别、悬停与位置调整。
+      </p>
+      <figure className={`work-video ${styles.flightVideo}`}>
+        <video controls playsInline preload="none" width={720} height={1280} poster="/media/drone-indoor-visual-flight-poster.jpg" aria-label="无人机实机测试：三角形目标识别、悬停与位置调整">
+          <source src="/media/drone-indoor-visual-flight.mp4" type="video/mp4" />
+          <track kind="captions" src="/media/drone-indoor-visual-flight-zh.vtt" srcLang="zh" label="中文说明" />
+          浏览器不支持视频播放，请使用下方视频链接。
+        </video>
+        <figcaption>
+          三角形目标识别、悬停与位置调整 · 15 秒实机演示。
+          <a href="/media/drone-indoor-visual-flight.mp4" download>下载视频 ↗</a>
+        </figcaption>
+      </figure>
       <h3 className="demo-section-title" id="drone-simulation">视觉导航仿真</h3>
       <p className="work-lead">
         在 ROS / RflySim 中组织视觉导航任务，根据前视相机与深度信息计算门框中心航点，
