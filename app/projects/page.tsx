@@ -5,11 +5,12 @@ import { ArrowUpRight } from 'lucide-react';
 import AutolaborDemos from '../autolabor-demos';
 import AirportDemos from '../airport-demos';
 import CubeProject from '../cube-project';
+import DroneProject from '../drone-project';
 
 export const metadata: Metadata = {
   title: '核心完整项目与演示 · YongQi Li',
   description:
-    '普渡分层规划、净途智行机场实车测试、双臂魔方机器人和华为存储杯多模态问答的图文、视频与源码。',
+    '普渡分层规划、净途智行机场测试、多旋翼无人机自主抓取、双臂魔方机器人和华为存储杯多模态问答的图文与视频。',
   alternates: { canonical: '/projects/' },
 };
 
@@ -59,6 +60,7 @@ export default function Projects() {
         <nav aria-label="项目导航">
           <a href="#pudu">普渡</a>
           <a href="#autolabor">挑战杯</a>
+          <a href="#drone">无人机</a>
           <a href="#cube">魔方</a>
           <a href="#huawei">华为</a>
           <Link href="/resume/">简历</Link>
@@ -68,7 +70,7 @@ export default function Projects() {
         <div className="work-intro">
           <p className="eyebrow">CORE PROJECTS / DEMOS</p>
           <h1>核心完整项目</h1>
-          <p>机器人导航、实车清扫、魔方复原与多模态问答：项目成果、现场演示与源码。</p>
+          <p>机器人导航、机场清扫、无人机自主抓取、魔方复原与多模态问答：项目成果与视频演示。</p>
         </div>
 
         <section className="work-section" id="pudu">
@@ -217,11 +219,13 @@ export default function Projects() {
           </div>
         </section>
 
+        <DroneProject />
+
         <CubeProject />
 
         <section className="work-section" id="huawei">
           <div className="work-heading">
-            <span className="eyebrow">04 / 多模态检索问答</span>
+            <span className="eyebrow">05 / 多模态检索问答</span>
             <h2>不二鸟 · 华为存储杯 MRAG</h2>
             <p>r58 · Transformers / Qwen3-VL-8B · BGE-M3 / BGE reranker</p>
           </div>

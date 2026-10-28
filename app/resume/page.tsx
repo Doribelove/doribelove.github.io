@@ -117,6 +117,16 @@ export default function Resume() {
           </div>
           <div className="resume-project">
             <h3>
+              <a href="https://doribelove.github.io/projects/#drone">多旋翼无人机 · 自主导航与视觉抓取</a>{' '}
+              <span>平台副队长 / 抓取项目队长 · 2022–2024</span>
+            </h3>
+            <ul>
+              <li>主导四旋翼结构、动力与供电设计，完成 PX4 / MAVROS / Jetson / ROS 集成，平台有效载荷 <b>&gt;1.5 kg</b>、续航 <b>&gt;20 min</b>。</li>
+              <li>修改 EGO-Planner，结合 YOLOv8 与视觉伺服完成自主导航、柱面 QR 识别、抓取和投放；获 <b>2024 年四川省未来飞行器挑战赛实践类一等奖</b>及<b>“翱翔计划”优秀 A 结题</b>。</li>
+            </ul>
+          </div>
+          <div className="resume-project">
+            <h3>
               <a href="https://doribelove.github.io/projects/#cube">魔方机器人 · 双臂视觉复原</a>{' '}
               <span>Python / OpenCV / Two-Phase / ODrive / Arduino</span>
             </h3>
@@ -176,7 +186,7 @@ export default function Resume() {
           </p>
           <p>
             <b>机器人：</b>FAST-LIO、ICP、TF、Nav2、Hybrid A*、TEB、覆盖规划、B
-            样条与 MPC。
+            样条与 MPC、PX4、MAVROS、EGO-Planner、视觉伺服。
           </p>
           <p>
             <b>开源社区：</b>FOSSASIA、YFOSP 公开 GitHub 组织成员。

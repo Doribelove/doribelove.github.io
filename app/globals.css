@@ -1348,6 +1348,21 @@ a.text-link:hover,
 .featured-card:nth-child(2) .featured-image img {
   object-fit: cover;
 }
+.featured-card:nth-child(3) .featured-image img {
+  object-fit: cover;
+}
+@media (min-width: 721px) {
+  .featured-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+  .featured-card:last-child:nth-child(odd) .featured-image {
+    width: 50%;
+    flex-shrink: 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+}
 .featured-copy {
   padding: 24px;
   display: flex;
@@ -1673,22 +1688,26 @@ a.text-link:hover,
   }
   .resume-header {
     flex-direction: row;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
+  }
+  .resume-header h1 {
+    font-size: 26px;
   }
   .resume-header > div:last-child {
     align-items: flex-end;
   }
   .resume-paper section {
-    margin-top: 8px;
+    margin-top: 6px;
   }
   .resume-paper p,
   .resume-paper li {
     font-size: 9pt;
-    line-height: 1.45;
+    line-height: 1.32;
   }
   .resume-paper h2 {
     font-size: 11pt;
-    margin-bottom: 5px;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
   }
   .resume-paper h3 {
     font-size: 10pt;
@@ -1699,7 +1718,7 @@ a.text-link:hover,
     font-size: 8pt;
   }
   .resume-project + .resume-project {
-    margin-top: 6px;
+    margin-top: 5px;
   }
   .resume-project,
   .resume-contributions p {
@@ -1707,14 +1726,15 @@ a.text-link:hover,
   }
   .resume-paper .resume-note {
     font-size: 8pt;
+    line-height: 1.35;
   }
   .resume-contributions p {
     grid-template-columns: 34mm 1fr 15mm;
     font-size: 8.5pt;
   }
   .resume-footer {
-    margin-top: 12px;
-    padding-top: 7px;
+    margin-top: 8px;
+    padding-top: 5px;
     font-size: 7pt;
   }
   a {

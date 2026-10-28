@@ -1,4 +1,4 @@
-export const updatedOn = '2026.10.27';
+export const updatedOn = '2026.10.28';
 export const contributionsAsOf = '2026.10.27';
 export const contributionArchive = '/evidence/contributions-20261027.json';
 export const github = 'https://github.com/Doribelove';
@@ -252,7 +252,7 @@ export const representativeContributions = contributions.filter((item) =>
 export const skills = [
   {
     title: '规划与控制',
-    text: 'Nav2、Hybrid A*、Smac、TEB、覆盖规划、B 样条、MPC。',
+    text: 'Nav2、Hybrid A*、Smac、TEB、EGO-Planner、覆盖规划、B 样条、MPC、视觉伺服。',
     note: '从地图与运动学约束，到可执行路径。',
   },
   {
@@ -262,7 +262,7 @@ export const skills = [
   },
   {
     title: '系统与验证',
-    text: 'C++ / Python、ROS 1 / 2、Linux、Git、pytest、性能剖析与 CI。',
+    text: 'C++ / Python、ROS 1 / 2、PX4 / MAVROS、Jetson、Linux、Git、pytest、性能剖析与 CI。',
     note: '复现问题、固定对照、回归验证、上游协作。',
   },
 ];

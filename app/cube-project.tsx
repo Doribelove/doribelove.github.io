@@ -5,7 +5,7 @@ export default function CubeProject() {
   return (
     <section className="work-section" id="cube">
       <div className="work-heading">
-        <span className="eyebrow">03 / 视觉识别 · 双臂协同</span>
+        <span className="eyebrow">04 / 视觉识别 · 双臂协同</span>
         <h2>魔方机器人 · 双臂视觉复原</h2>
         <p>Python / OpenCV · Two-Phase · ODrive / Arduino</p>
       </div>

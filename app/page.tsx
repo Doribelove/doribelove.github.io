@@ -8,7 +8,7 @@ import {
   MoveUpRight,
 } from 'lucide-react';
 import Benchmark from './components/Benchmark';
-import FeaturedProjects from './featured';
+import FeaturedProjects, { featuredProjects } from './featured';
 import { Publications } from './publications';
 import {
   contributions,
@@ -189,7 +189,7 @@ export default function Home() {
                 <span className="mono">ROBOTICS / RESEARCH</span>
                 <strong>导航系统与多模态问答</strong>
               </div>
-              <span className="outline-badge">更新 · 10.27</span>
+              <span className="outline-badge">更新 · 10.28</span>
             </div>
           </aside>
         </section>
@@ -214,7 +214,7 @@ export default function Home() {
           </a>
           <Link href="/projects/">
             <strong>
-              04<span> / PROJECTS</span>
+              {String(featuredProjects.length).padStart(2, '0')}<span> / PROJECTS</span>
             </strong>
             <p>
               核心完整项目 <ArrowUpRight size={15} aria-hidden="true" />
@@ -237,7 +237,7 @@ export default function Home() {
             <p>
               从分层规划到部署链路，
               <br />
-              覆盖算法实现、系统集成与实车应用。
+              覆盖移动机器人、无人机与双臂系统。
             </p>
           </div>
           <FeaturedProjects />
