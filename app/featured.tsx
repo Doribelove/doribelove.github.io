@@ -40,8 +40,8 @@ export const featuredProjects = [
     id: 'cube',
     name: '魔方机器人 · 双臂视觉复原',
     category: '机器人竞赛 / 国家级二等奖',
-    image: '/media/cube-demo-poster.jpg',
-    alt: '双臂魔方机器人执行实体魔方复原',
+    image: '/media/cube-hardware-overview.jpg',
+    alt: '双臂魔方机器人整机与相机、驱动控制模块',
     summary:
       '四路视觉识别、Two-Phase 求解与双臂协同执行，7 秒完成识别、解算和还原。获 2024 年中国高校智能机器人创意大赛国家级二等奖，总排名 9/55。',
     href: 'https://github.com/Doribelove/robot_mofang',

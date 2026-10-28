@@ -1,0 +1,17 @@
+.gallery .photoFrame {
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery .photoFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.testVideos video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
