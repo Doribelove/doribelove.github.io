@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import styles from './drone-project.module.css';
+
 export default function DroneProject() {
   return (
     <section className="work-section" id="drone" aria-labelledby="drone-title">
@@ -16,6 +19,59 @@ export default function DroneProject() {
         <div><strong>&gt;1.5 kg</strong><span>平台有效载荷</span></div>
         <div><strong>&gt;20 min</strong><span>飞行续航</span></div>
         <div><strong>一等奖</strong><span>2024 年四川省未来飞行器挑战赛 · 实践类</span></div>
+      </div>
+      <h3 className="demo-section-title">实物平台</h3>
+      <figure className="work-photo">
+        <Image
+          unoptimized
+          src="/media/drone-platform-front.jpg"
+          alt="自研四旋翼飞行平台正面，搭载绿色机载支架与前向视觉设备"
+          width={4080}
+          height={3060}
+          loading="lazy"
+        />
+        <figcaption>自研四旋翼平台：飞控、机载计算与前向视觉设备集成。</figcaption>
+      </figure>
+      <div className={`work-gallery three ${styles.gallery}`}>
+        <figure className="work-photo">
+          <div className={styles.photoFrame}>
+            <Image
+              unoptimized
+              src="/media/drone-flight-controller.jpg"
+              alt="CUAV V5+ 飞控与机载模块的结构集成近景"
+              width={4624}
+              height={3468}
+              loading="lazy"
+            />
+          </div>
+          <figcaption>CUAV V5+ 飞控与机载模块的结构集成。</figcaption>
+        </figure>
+        <figure className="work-photo">
+          <div className={styles.photoFrame}>
+            <Image
+              unoptimized
+              src="/media/drone-outdoor-platform.jpg"
+              alt="户外多旋翼平台与前向视觉组件"
+              width={1078}
+              height={786}
+              loading="lazy"
+            />
+          </div>
+          <figcaption>户外多旋翼平台与前向视觉组件。</figcaption>
+        </figure>
+        <figure className="work-photo">
+          <div className={styles.photoFrame}>
+            <Image
+              unoptimized
+              src="/media/drone-ground-station.jpg"
+              alt="户外调试中的地面站、遥控器与多旋翼平台"
+              width={3468}
+              height={4624}
+              loading="lazy"
+            />
+          </div>
+          <figcaption>地面站、遥控器与多旋翼平台的户外调试。</figcaption>
+        </figure>
       </div>
       <div className="work-gallery">
         <div className="work-text-card">

@@ -29,8 +29,8 @@ export const featuredProjects = [
     id: 'drone',
     name: '多旋翼无人机 · 自主导航与视觉抓取',
     category: '飞行平台与自主作业 / 省级一等奖',
-    image: '/media/drone-simulation-poster.jpg',
-    alt: '无人机视觉导航仿真中的门框检测与飞行画面',
+    image: '/media/drone-platform-front.jpg',
+    alt: '自研四旋翼飞行平台正面，搭载绿色机载支架与前向视觉设备',
     summary:
       '完成 PX4、MAVROS、Jetson 与 ROS 集成，结合 EGO-Planner、YOLOv8 和视觉伺服实现自主导航、抓取与定点投放。载荷超过 1.5 kg、续航超过 20 分钟，获省级一等奖。',
     href: null,
