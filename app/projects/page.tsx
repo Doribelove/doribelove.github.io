@@ -161,9 +161,21 @@ export default function Projects() {
             </div>
           </div>
           <div className="project-links">
+            <a href="#autolabor-hardware">查看整车细节 ↓</a>
             <a href="#autolabor-field">查看机场实车测试 ↓</a>
             <a href="#autolabor-demos">查看系统与场景演示 ↓</a>
           </div>
+          <h3 className="demo-section-title" id="autolabor-hardware">整车细节</h3>
+          <figure className="work-video">
+            <video controls playsInline preload="none" poster="/media/autolabor-hardware-poster.jpg" aria-labelledby="autolabor-hardware">
+              <source src="/media/autolabor-hardware.mp4" type="video/mp4" />
+              <track kind="captions" src="/media/autolabor-hardware-zh.vtt" srcLang="zh" label="中文画面说明" />
+            </video>
+            <figcaption>
+              环绕展示四轮底盘与清扫机构，近看相机、车顶传感器及其安装位置。
+              <a href="/media/autolabor-hardware.mp4" download>下载视频 ↗</a>
+            </figcaption>
+          </figure>
           <h3 className="demo-section-title" id="autolabor-field">机场实车测试</h3>
           <p className="demo-group-intro">
             2026 年 10 月 13–17 日，重新装配后的车辆在机坪与滑行道开展回收和避障测试，覆盖黎明、白天、黄昏与夜晚。

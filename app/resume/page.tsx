@@ -106,6 +106,7 @@ export default function Resume() {
             <ul>
               <li>
                 基于 J6M + AGX 集成 FAST-LIO / GNSS、Hybrid A* / TEB、三路环视与 BEV 映射，完成定位、感知、规划和清扫控制。
+                <a href="https://doribelove.github.io/projects/#autolabor-hardware">整车细节视频 ↗</a>
               </li>
               <li>
                 接入 Qwen 8B 任务分解与 Qt 交互，演示场景语义导航和工厂、停车场、商场覆盖规划。
