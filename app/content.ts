@@ -1,10 +1,19 @@
-export const updatedOn = '2026.10.28';
-export const contributionsAsOf = '2026.10.27';
-export const contributionArchive = '/evidence/contributions-20261027.json';
+export const updatedOn = '2026.11.05';
+export const contributionsAsOf = '2026.11.05';
+export const contributionArchive = '/evidence/contributions-20261105.json';
 export const github = 'https://github.com/Doribelove';
 export const email = 'doribelove@gmail.com';
 
 export const contributions = [
+  {
+    project: 'ROS / rosdistro',
+    number: 55197,
+    title: '修复新版系统的 rosdep 依赖解析',
+    detail:
+      '为新版 Ubuntu、Debian 优先选择原生 flake8-black 包，保留旧版 pip 安装支持，完成 13 组平台与版本验证。',
+    href: 'https://github.com/ros/rosdistro/pull/55197',
+    mergedAt: '2026-11-04T20:28:24Z',
+  },
   {
     project: 'REA',
     number: 5363,
@@ -240,7 +249,7 @@ export const contributions = [
 
 export const representativeContributions = contributions.filter((item) =>
   [
-    'https://github.com/morluto/rea/pull/5363',
+    'https://github.com/ros/rosdistro/pull/55197',
     'https://github.com/rai-opensource/spatialmath-python/pull/232',
     'https://github.com/petercorke/robotics-toolbox-python/pull/706',
     'https://github.com/hgrecco/pint/pull/2422',
