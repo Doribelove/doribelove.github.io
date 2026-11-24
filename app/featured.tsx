@@ -51,12 +51,34 @@ export const featuredProjects = [
     id: 'huawei',
     name: '不二鸟 · 华为存储杯 MRAG',
     category: '多模态检索问答 / r58',
-    image: '/media/huawei-pipeline.png',
-    alt: '华为存储杯 r58 多模态检索问答的证据处理流程',
+    image: '/media/vehicle-task-complete.png',
+    alt: '净途智行无人车六步清扫任务完成后的回执与覆盖轨迹',
     summary:
-      '从 PDF 文本、表格与图像检索证据，组合 BGE-M3、重排器与 Qwen3-VL，实现多模态问答、答案溯源、证据支持检查和拒答处理。',
+      '在存储杯中实现 PDF 多模态问答与证据溯源。在净途智行无人车上运行本地模型，将清扫指令拆成六步，完成区域覆盖并返回起点。',
     href: 'https://github.com/Doribelove/huawei-storage-cup-mrag',
     tags: 'Python · Transformers · Qwen3-VL · BGE-M3',
+  },
+  {
+    id: 'piper',
+    name: 'PiPER · 六轴机械臂按电梯按钮',
+    category: '具身操作 / ROS 2',
+    image: '/media/piper-gazebo.png',
+    alt: 'PiPER ROS 仿真包中的 Gazebo 机械臂场景',
+    summary:
+      '结合主相机、腕部相机与关节反馈，用视觉语言动作模型控制六轴机械臂。在候梯厅按下呼梯键，在轿厢内调整姿态并按下楼层键。',
+    href: 'https://github.com/Doribelove/robot_arm-main',
+    tags: 'ROS 2 · VLA · Gazebo · MuJoCo',
+  },
+  {
+    id: 'wall-x',
+    name: 'WALL-OSS-0.5 · Isaac Sim 双臂操作',
+    category: '具身操作 / 仿真',
+    image: '/media/wall-x-usb-insertion.jpg',
+    alt: 'Isaac Sim 仿真中的 EX001 双臂执行 USB 插接',
+    summary:
+      '在 Isaac Sim 中将 WALL-OSS-0.5 接入 EX001 双臂。USB 插接测试中，双臂对准并插入 9.56 mm，松手后保持插接 3.20 秒。',
+    href: 'https://github.com/Doribelove/wall-x/tree/main/examples/isaac_sim',
+    tags: 'Isaac Sim · 双臂控制 · RTX 5090',
   },
 ];
 

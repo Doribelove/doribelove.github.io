@@ -6,11 +6,12 @@ import AutolaborDemos from '../autolabor-demos';
 import AirportDemos from '../airport-demos';
 import CubeProject from '../cube-project';
 import DroneProject from '../drone-project';
+import EmbodiedProjects from '../embodied-projects';
 
 export const metadata: Metadata = {
   title: '核心完整项目与演示 · YongQi Li',
   description:
-    '普渡分层规划、净途智行机场测试、多旋翼无人机自主抓取、双臂魔方机器人和华为存储杯多模态问答的图文与视频。',
+    '机器人实机与仿真演示：机场清扫、车端任务解析、机械臂操作、双臂魔方复原、无人机抓取与分层导航。',
   alternates: { canonical: '/projects/' },
 };
 
@@ -20,6 +21,8 @@ const photoSizes: Record<string, [number, number]> = {
   '/media/autolabor-coverage.jpg': [1800, 944],
   '/media/huawei-http-log.png': [1400, 1160],
   '/media/huawei-pipeline.png': [1400, 780],
+  '/media/vehicle-task-parsing.png': [960, 720],
+  '/media/vehicle-task-complete.png': [960, 720],
   '/media/pudu-overview.png': [2210, 1615],
 };
 
@@ -57,12 +60,13 @@ export default function Projects() {
         <Link className="brand" href="/">
           ← YongQi Li
         </Link>
-        <nav aria-label="项目导航">
+        <nav className="project-nav" aria-label="项目导航">
           <a href="#pudu">普渡</a>
           <a href="#autolabor">挑战杯</a>
           <a href="#drone">无人机</a>
           <a href="#cube">魔方</a>
           <a href="#huawei">华为</a>
+          <a href="#embodied">具身操作</a>
           <Link href="/resume/">简历</Link>
         </nav>
       </header>
@@ -70,7 +74,7 @@ export default function Projects() {
         <div className="work-intro">
           <p className="eyebrow">CORE PROJECTS / DEMOS</p>
           <h1>核心完整项目</h1>
-          <p>机器人导航、机场清扫、无人机自主抓取、魔方复原与多模态问答：项目成果与视频演示。</p>
+          <p>查看机器人导航、清扫车、无人机、机械臂与多模态问答的项目成果、实机视频和仿真实验。</p>
         </div>
 
         <section className="work-section" id="pudu">
@@ -164,6 +168,7 @@ export default function Projects() {
             <a href="#autolabor-hardware">查看整车细节 ↓</a>
             <a href="#autolabor-field">查看机场实车测试 ↓</a>
             <a href="#autolabor-demos">查看系统与场景演示 ↓</a>
+            <a href="#huawei-vehicle">车端任务解析实车回放 ↓</a>
           </div>
           <h3 className="demo-section-title" id="autolabor-hardware">整车细节</h3>
           <figure className="work-video">
@@ -246,6 +251,9 @@ export default function Projects() {
             和支持检查流程。将模型回答与原文证据绑定，按证据支持情况生成回答或拒答，并适配赛事建库及
             question-only HTTP 查询接口。
           </p>
+          <div className="project-links">
+            <a href="#huawei-vehicle">观看车端任务解析实车回放 ↓</a>
+          </div>
           <Photo
             src="/media/huawei-pipeline.png"
             alt="r58 多模态检索问答系统流程图"
@@ -290,7 +298,36 @@ export default function Projects() {
               系统设计 <ArrowUpRight size={16} />
             </a>
           </div>
+          <h3 className="demo-section-title" id="huawei-vehicle">车端应用 · 自然语言清扫任务解析</h3>
+          <p className="demo-group-intro">
+            净途智行无人车在 Jetson AGX 上运行本地模型，将一条 2 × 10 m 区域清扫指令拆成六步。
+            车辆依次准备区域、开启清扫盘、执行覆盖、关闭清扫盘、收杆并返回起点。
+          </p>
+          <div className="work-gallery">
+            <Photo
+              src="/media/vehicle-task-parsing.png"
+              alt="任务解析界面列出六个待执行步骤，进度为 0/6；左侧显示车辆在地图中的起始位置"
+              caption="1:17 · 模型解析清扫指令，右侧列出六个待执行步骤。"
+            />
+            <Photo
+              src="/media/vehicle-task-complete.png"
+              alt="车辆返回起点，六个步骤全部打勾，地图上显示本次覆盖轨迹"
+              caption="4:49 · 车辆返回起点，六步全部完成，地图保留本次清扫轨迹。"
+            />
+          </div>
+          <figure className="work-video">
+            <video controls playsInline preload="none" poster="/media/vehicle-task-parsing.png" aria-label="无人车本地任务解析与清扫执行全程回放">
+              <source src="/media/vehicle-task-replay.mp4" type="video/mp4" />
+              <track kind="captions" src="/media/vehicle-task-replay-zh.vtt" srcLang="zh" label="中文画面说明" />
+            </video>
+            <figcaption>
+              4 分 54 秒实车回放 · 同步查看任务回执、点云、行驶轨迹和前视相机。
+              <a href="/media/vehicle-task-replay.mp4" download>下载视频 ↗</a>
+            </figcaption>
+          </figure>
         </section>
+
+        <EmbodiedProjects />
       </main>
       <footer className="site-footer shell">
         <div>

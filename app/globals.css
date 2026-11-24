@@ -1042,6 +1042,16 @@ a.text-link:hover,
     gap: 17px;
     font-size: 12px;
   }
+  .site-header .project-nav {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    column-gap: 12px;
+    row-gap: 6px;
+    margin-left: 12px;
+  }
+  .project-nav a {
+    white-space: nowrap;
+  }
   .brand > span:last-child {
     display: none;
   }
