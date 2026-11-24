@@ -10,6 +10,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://doribelove.github.io'),
+  icons: { icon: '/favicon.svg' },
   title: 'YongQi Li · 机器人导航与算法工程',
   description:
     'YongQi Li（Doribelove）的在线简历与项目作品集：机器人导航、机场实车测试、双臂魔方机器人、多模态问答、论文成果及开源贡献。',

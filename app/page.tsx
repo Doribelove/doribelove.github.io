@@ -30,20 +30,20 @@ function RouteDrawing() {
     >
       <title id="route-title">分层规划概念示意</title>
       <desc id="route-description">
-        区域选路、参考路径与运动学规划组成的三层导航链路概念图。
+        方块为起点，双圆为终点。灰色虚线标出参考路径，白色实线展示平滑后的运动学规划轨迹。
       </desc>
       <defs>
         <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
           <path
             d="M 24 0 L 0 0 0 24"
             fill="none"
-            stroke="#36534e"
+            stroke="#505050"
             strokeWidth="0.5"
           />
         </pattern>
       </defs>
       <rect width="480" height="300" fill="url(#grid)" />
-      <g fill="#263d38" stroke="#50665a" strokeWidth="1">
+      <g fill="#303030" stroke="#616161" strokeWidth="1">
         <rect x="62" y="49" width="96" height="65" rx="2" />
         <rect x="218" y="138" width="64" height="96" rx="2" />
         <rect x="340" y="57" width="76" height="54" rx="2" />
@@ -51,26 +51,26 @@ function RouteDrawing() {
       <path
         d="M40 246 L110 246 L183 180 L183 92 L300 92 L300 253 L402 253 L441 204"
         fill="none"
-        stroke="#7a9782"
+        stroke="#c4c4c4"
         strokeWidth="24"
         opacity=".12"
         strokeLinejoin="round"
       />
       <path
-        d="M40 246 C98 246 111 241 139 212 L165 186 Q183 170 183 146 L183 114 Q183 92 206 92 L278 92 Q300 92 300 114 L300 227 Q300 253 325 253 L382 253 Q402 253 415 237 L441 204"
-        fill="none"
-        stroke="#d5ed9e"
-        strokeWidth="2.5"
-      />
-      <path
         d="M40 246 L110 246 L183 180 L183 92 L300 92 L300 253 L402 253 L441 204"
         fill="none"
-        stroke="#96b49a"
+        stroke="#a6a6a6"
         strokeWidth="1"
-        strokeDasharray="4 6"
+        strokeDasharray="3 5"
       />
-      <g fill="#d5ed9e">
-        <circle cx="40" cy="246" r="5" />
+      <path
+        d="M40 246 C98 246 111 241 139 212 L165 186 Q183 170 183 146 L183 114 Q183 92 206 92 L278 92 Q300 92 300 114 L300 227 Q300 253 325 253 L382 253 Q402 253 415 237 L441 204"
+        fill="none"
+        stroke="#f3f3f3"
+        strokeWidth="2.5"
+      />
+      <g fill="#f3f3f3">
+        <rect x="36" y="242" width="8" height="8" />
         <circle cx="441" cy="204" r="5" />
       </g>
       <circle
@@ -78,10 +78,10 @@ function RouteDrawing() {
         cy="204"
         r="12"
         fill="none"
-        stroke="#d5ed9e"
+        stroke="#f3f3f3"
         opacity=".5"
       />
-      <g fill="#c3d0bc" fontSize="10" fontFamily="monospace">
+      <g fill="#c2c2c2" fontSize="10" fontFamily="monospace">
         <text x="28" y="271">
           START
         </text>
@@ -96,12 +96,12 @@ function RouteDrawing() {
         </text>
       </g>
       <g transform="translate(300 182)">
-        <circle r="18" fill="#d5ed9e" fillOpacity=".12" />
-        <rect x="-7" y="-10" width="14" height="20" rx="3" fill="#d5ed9e" />
+        <circle r="18" fill="#f3f3f3" fillOpacity=".12" />
+        <rect x="-7" y="-10" width="14" height="20" rx="3" fill="#f3f3f3" />
         <path
           d="M-4 0 L0 5 L4 0"
           fill="none"
-          stroke="#17332b"
+          stroke="#202020"
           strokeWidth="2"
         />
       </g>
@@ -136,17 +136,8 @@ export default function Home() {
       <main id="main">
         <section className="hero shell" id="top">
           <div className="hero-copy">
-            <p className="eyebrow">
-              <span className="status-dot" /> ROBOTICS / PLANNING / SYSTEMS
-            </p>
-            <p className="hero-name">
-              你好，我是 YongQi Li <span>Dori</span>
-            </p>
-            <h1>
-              构建机器人系统，
-              <br />
-              <span>用实验回答问题。</span>
-            </h1>
+            <h1>YongQi Li</h1>
+            <p className="hero-subtitle">机器人导航与具身智能</p>
             <p className="hero-intro">
               电子科技大学在读学生。聚焦移动机器人导航、路径规划与工程验证，把算法接入
               ROS
@@ -172,26 +163,13 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <aside className="hero-visual">
-            <div className="visual-top">
-              <span>
-                <span className="small-dot" /> CURRENT FOCUS
-              </span>
-              <span>01 / AUTONOMY</span>
-            </div>
+          <figure className="hero-visual">
             <RouteDrawing />
-            <div className="visual-caption">
-              <span>区域选路 → 参考路径 → 运动学规划</span>
-              <small>分层规划概念示意</small>
-            </div>
-            <div className="visual-bottom">
-              <div>
-                <span className="mono">ROBOTICS / RESEARCH</span>
-                <strong>导航系统与多模态问答</strong>
-              </div>
-              <span className="outline-badge">更新 · 10.28</span>
-            </div>
-          </aside>
+            <figcaption className="visual-caption">
+              <span>分层导航示意</span>
+              <small>区域选路 → 参考路径 → 运动学规划</small>
+            </figcaption>
+          </figure>
         </section>
 
         <div className="fact-strip shell" aria-label="成果概览">
