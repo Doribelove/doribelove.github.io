@@ -1,37 +1,39 @@
 'use client';
 
 import { useState } from 'react';
+import { p6, r3 } from '../pudu';
 
 const metrics = [
   {
     name: '峰值内存',
-    baseline: 3.779,
-    current: 2.451,
-    unit: 'GiB',
-    improvement: '35.2',
-    note: '查询进程与 ROS 子进程的 RSS 合计峰值。',
+    field: 'medianPeakMiB',
+    label: '峰值 RSS 中位数',
+    unit: 'MiB',
+    digits: 2,
+    note: '先取每次请求中规划进程及其 ROS 子进程的 RSS 合计峰值，再取 300 次请求的中位数。',
   },
   {
-    name: '总体耗时',
-    baseline: 1.418,
-    current: 1.178,
+    name: '耗时中位数',
+    field: 'medianSeconds',
+    label: '请求耗时中位数',
     unit: 's',
-    improvement: '17.0',
-    note: '30 次查询墙钟耗时的中位数。',
+    digits: 3,
+    note: '地图与服务就绪后，从发出首次规划请求到返回结果，统计 300 次请求的耗时中位数。',
   },
   {
     name: 'P95 耗时',
-    baseline: 7.077,
-    current: 5.85,
+    field: 'p95Seconds',
+    label: '请求耗时 P95',
     unit: 's',
-    improvement: '17.3',
-    note: '同一固定查询集的第 95 百分位耗时。',
+    digits: 3,
+    note: '同批 300 次首次规划请求的第 95 百分位耗时，包含请求中的恢复和最终路径校验。',
   },
-];
+] as const;
 
 export default function Benchmark() {
   const [selected, setSelected] = useState(0);
   const metric = metrics[selected];
+  const scale = Math.max(r3[metric.field], p6[metric.field]);
 
   return (
     <div className="benchmark">
@@ -50,35 +52,36 @@ export default function Benchmark() {
       </fieldset>
       <div className="benchmark-result" aria-live="polite">
         <div className="benchmark-head">
-          <span>{metric.name}降低</span>
+          <span>P6 · {metric.label}</span>
           <strong>
-            {metric.improvement}
-            <small>%</small>
-            <span aria-hidden="true"> ↘︎</span>
+            {p6[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
           </strong>
         </div>
         <div className="comparison-row">
           <div>
-            <span>r10 · 同环境对照</span>
+            <span>{r3.version}</span>
             <b>
-              {metric.baseline.toFixed(3)} <small>{metric.unit}</small>
+              {r3[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
             </b>
           </div>
           <div className="bar-track">
-            <div className="bar baseline" style={{ width: '100%' }} />
+            <div
+              className="bar baseline"
+              style={{ width: `${(r3[metric.field] / scale) * 100}%` }}
+            />
           </div>
         </div>
         <div className="comparison-row">
           <div>
-            <span>r11 · A+B</span>
+            <span>{p6.version}</span>
             <b>
-              {metric.current.toFixed(3)} <small>{metric.unit}</small>
+              {p6[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
             </b>
           </div>
           <div className="bar-track">
             <div
               className="bar current"
-              style={{ width: `${(metric.current / metric.baseline) * 100}%` }}
+              style={{ width: `${(p6[metric.field] / scale) * 100}%` }}
             />
           </div>
         </div>

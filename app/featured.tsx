@@ -1,18 +1,19 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import { p6 } from './pudu';
 
 export const featuredProjects = [
   {
     id: 'pudu',
     name: '普渡 · 分层导航与运动规划',
     category: '工作实践 / ROS 2 · Nav2',
-    image: '/media/pudu-overview.png',
-    alt: '普渡 V11-r3 十图导航耗时和整进程树内存分布图',
+    image: p6.figure,
+    alt: 'P6 在十张地图上首次规划的耗时中位数、P95 和进程树峰值内存中位数',
     summary:
-      '基于 ROS 2 / Nav2 构建大地图分层导航，连接拓扑选路、参考路径、运动学搜索与轨迹校验，完成规划性能优化与多场景测试。',
-    href: 'https://github.com/Doribelove/pudu_robot_ws',
-    tags: 'C++ · Python · Hybrid A* · 性能优化',
+      `${p6.version} 先选通行走廊，再搜索参考路径、优化连续曲线。十张地图的 300 次静态规划全部成功，其中 297 次精确到达。`,
+    href: p6.source,
+    tags: 'ROS 2 / Nav2 · 增量 D* · 三次 B 样条',
   },
   {
     id: 'autolabor',

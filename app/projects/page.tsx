@@ -7,6 +7,7 @@ import AirportDemos from '../airport-demos';
 import CubeProject from '../cube-project';
 import DroneProject from '../drone-project';
 import EmbodiedProjects from '../embodied-projects';
+import { p6, peakMemoryReduction, r3 } from '../pudu';
 
 export const metadata: Metadata = {
   title: '核心完整项目与演示 · YongQi Li',
@@ -23,7 +24,7 @@ const photoSizes: Record<string, [number, number]> = {
   '/media/huawei-pipeline.png': [1400, 780],
   '/media/vehicle-task-parsing.png': [960, 720],
   '/media/vehicle-task-complete.png': [960, 720],
-  '/media/pudu-overview.png': [2210, 1615],
+  [p6.figure]: [1600, 1000],
 };
 
 function Photo({
@@ -81,64 +82,61 @@ export default function Projects() {
           <div className="work-heading">
             <span className="eyebrow">01 / 工作实践</span>
             <h2>普渡 · 分层导航与运动规划</h2>
-            <p>ROS 2 / Nav2 · C++ / Python · 3YDL3-V11-r3 静态规划测试</p>
+            <p>{p6.version} · ROS 2 / Nav2 · C++ / Python</p>
           </div>
           <p className="work-lead">
-            围绕大地图上的运动学可行路径，连接拓扑引导、栅格搜索、局部精化与终验，输出路径可视化、请求耗时统计和整进程树内存分析。
+            规划器先根据地图拓扑选出可通行的走廊，在走廊内搜索二维参考路径。交通条件变化时用增量 D* 更新参考路径，
+            再用三次 B 样条优化整条路线，检查车体通行空间、转弯曲率、交通规则和 Nav2 代价地图。
           </p>
           <div className="work-stats">
             <div>
               <strong>300/300</strong>
-              <span>规划成功 · 297 次精确到达 + 3 次容差到达</span>
+              <span>静态规划成功 · 297 次精确到达，3 次容差到达</span>
             </div>
             <div>
-              <strong>0.816 s</strong>
-              <span>地图与服务就绪后，300 次请求耗时中位数</span>
+              <strong>{p6.medianSeconds} s</strong>
+              <span>首次规划请求耗时中位数</span>
             </div>
             <div>
-              <strong>3.657 s</strong>
-              <span>同批首次导航请求耗时 P95</span>
+              <strong>{p6.p95Seconds} s</strong>
+              <span>同批请求耗时 P95</span>
             </div>
           </div>
           <Photo
-            src="/media/pudu-overview.png"
-            alt="V11-r3 十图首次导航耗时与整树 RSS 箱线图"
-            caption="V11-r3 十图首次导航耗时与整树 RSS 分布，每图 30 次，共 300 次；297 次精确到达、3 次容差到达，时间轴为对数坐标。"
+            src={p6.figure}
+            alt="P6 十图逐图统计。左图为请求耗时中位数和 P95，右图为进程树峰值 RSS 中位数。"
+            caption="每张地图的 10 个固定任务各运行 3 轮。两幅图按地图面积从小到大排列，每行统计该图的 30 次请求。"
           />
           <div className="work-gallery">
             <div className="work-text-card">
-              <h3>十图、300 次首次请求</h3>
+              <h3>两版在相同任务上的表现</h3>
               <p>
-                每张地图 10 个固定任务、3 轮重复。297 次精确到达；另外 3
-                次为同一任务允许终点朝向 +5° 的容差回退，位置及起点朝向不变。
+                {r3.version} 与 P6 均完成全部 300 次规划。进程树峰值 RSS 中位数从 {r3.medianPeakMiB} MiB
+                降至 {p6.medianPeakMiB} MiB，低了 {peakMemoryReduction}%。请求耗时中位数从 {r3.medianSeconds} s
+                增至 {p6.medianSeconds} s，P95 从 {r3.p95Seconds} s 增至 {p6.p95Seconds} s。
               </p>
               <p className="scope-note">
-                以地图与服务就绪后的导航请求为计时起点，统计各层规划、地图同步、ACK、恢复、终验及返回前堆回收的完整请求耗时。整进程树
-                RSS 峰值的中位数为 990.39 MiB。
+                从地图和服务就绪后发出规划请求开始计时，包含请求内的恢复、路径校验和代价地图确认。
               </p>
             </div>
             <div className="work-text-card">
-              <h3>工作重点</h3>
+              <h3>逐层关闭规划功能后，还能完成多少任务？</h3>
+              <p>另取相同的 100 个固定任务，每种配置各运行一轮。</p>
               <ul>
-                <li>将区域／拓扑路径与运动学约束规划连接为完整流程。</li>
-                <li>
-                  统计终点位置与朝向误差、完整请求耗时和整进程树内存。
-                </li>
-                <li>
-                  完成静态规划测试与指定受控事件回放，提供路径图、源码和实验结果。
-                </li>
+                <li>完整 P6 成功 100/100，其中 99 次精确到达。</li>
+                <li>关闭拓扑搜索（L1）后成功 66/100，关闭参考路径搜索（L2）后成功 46/100。</li>
+                <li>关闭曲线优化（L3）后成功 0/99。另 1 次在测试框架复位时失败。</li>
               </ul>
             </div>
           </div>
           <div className="project-links">
-            <a
-              href="https://github.com/Doribelove/pudu_robot_ws"
-              target="_blank"
-              rel="noreferrer"
-            >
-              项目源码与实验结果 <ArrowUpRight size={16} />
+            <a href={p6.source} target="_blank" rel="noreferrer">
+              P6 源码 <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-            <Link href="/#experiments">V5-r11 对照实验 ↗</Link>
+            <a href={p6.report} target="_blank" rel="noreferrer">
+              实验报告与逐次数据 <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+            <Link href="/#experiments">两版内存与耗时对照 ↗</Link>
           </div>
         </section>
 

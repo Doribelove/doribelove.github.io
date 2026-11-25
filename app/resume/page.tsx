@@ -10,6 +10,7 @@ import {
   updatedOn,
 } from '../content';
 import { publications } from '../publications';
+import { p6, peakMemoryReduction, r3 } from '../pudu';
 
 export const metadata: Metadata = {
   title: 'YongQi Li · 机器人导航与算法工程简历',
@@ -80,20 +81,16 @@ export default function Resume() {
             </h3>
             <ul>
               <li>
-                集成 L1/L2/L3 分层规划、任务地图同步与运动学约束检查，完成路径终验、性能统计及可视化。
+                在 {p6.version} 中，按道路拓扑选路，用增量 D* 更新参考路径，再用三次 B 样条优化整条路线，校验车体通行空间与曲率。
               </li>
               <li>
-                V11-r3 十图静态规划测试，300 次首次请求：
-                <b>297 次精确到达 + 3 次容差到达</b>；请求耗时中位{' '}
-                <b>0.816 s</b>、P95 <b>3.657 s</b>，整进程树 RSS 峰值中位{' '}
-                <b>990.39 MiB</b>。
+                十张地图、100 个固定任务各运行三轮，<b>297 次精确到达，3 次容差到达</b>。请求耗时中位数{' '}
+                <b>{p6.medianSeconds} s</b>，P95 <b>{p6.p95Seconds} s</b>。进程树峰值 RSS 中位数{' '}
+                <b>{p6.medianPeakMiB} MiB</b>，较 {r3.version} 低 <b>{peakMemoryReduction}%</b>。
               </li>
             </ul>
             <p className="resume-note">
-              请求耗时从地图与服务就绪后的导航请求开始统计。
-              <a href="https://github.com/Doribelove/pudu_robot_ws">
-                源码与实验结果 ↗︎
-              </a>
+              地图与服务就绪后开始计时。<a href={p6.report}>P6 实验报告与逐次记录 ↗︎</a>
             </p>
           </div>
           <div className="resume-project">

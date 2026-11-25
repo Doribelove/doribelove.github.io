@@ -10,6 +10,7 @@ import {
 import Benchmark from './components/Benchmark';
 import FeaturedProjects, { featuredProjects } from './featured';
 import { Publications } from './publications';
+import { p6, peakMemoryReduction, r3 } from './pudu';
 import {
   contributions,
   contributionsAsOf,
@@ -227,32 +228,28 @@ export default function Home() {
           <div className="shell experiment-grid">
             <div className="experiment-copy">
               <span className="eyebrow">03 / PLANNING PERFORMANCE</span>
-              <h2>
-                路径保持一致，
-                <br />
-                开销进一步下降。
-              </h2>
+              <h2>十图规划的耗时与内存</h2>
               <p>
-                3YD-V5-r11 静态规划性能优化：A+B 对比同环境重新运行的
-                r10。固定 10 组查询各运行 3
-                次，全部通过严格验收；最终路径逐点一致。
+                {r3.version} 与 {p6.version} 在十张地图上各运行 300 次首次规划。
+                两版均有 297 次精确到达，另有 3 次在允许的位姿容差内完成。
               </p>
               <div className="experiment-facts">
                 <div>
-                  <strong>800</strong>
-                  <span>组原生代价图等价性用例</span>
+                  <strong>100 × 3</strong>
+                  <span>固定任务数 × 测试轮数</span>
                 </div>
                 <div>
-                  <strong>41</strong>
-                  <span>项 Python 测试通过</span>
+                  <strong>{peakMemoryReduction}%</strong>
+                  <span>P6 的进程树峰值 RSS 中位数降幅</span>
                 </div>
               </div>
-              <a className="text-link" href="/evidence/3yd-v5-r11.md" download>
-                实验结果与方法 <ArrowUpRight size={16} aria-hidden="true" />
+              <a className="text-link" href={p6.report} target="_blank" rel="noreferrer">
+                P6 实验报告与原始数据 <ArrowUpRight size={16} aria-hidden="true" />
               </a>
               <p className="scope-note">
-                静态单地图实验 · 串行查询 ·
-                数值库单线程。规划栈就绪后统计查询耗时。
+                <a href={r3.report} target="_blank" rel="noreferrer">V11-r3 对照数据 ↗</a>
+                {' · '}
+                <a href="/evidence/3yd-v5-r11.md" download>早期 V5-r11 实验摘要 ↓</a>
               </p>
             </div>
             <Benchmark />
