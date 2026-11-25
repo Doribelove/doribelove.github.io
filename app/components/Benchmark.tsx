@@ -1,6 +1,4 @@
-'use client';
-
-import { useState } from 'react';
+import { Fragment } from 'react';
 import { p6, r3 } from '../pudu';
 
 const metrics = [
@@ -31,62 +29,53 @@ const metrics = [
 ] as const;
 
 export default function Benchmark() {
-  const [selected, setSelected] = useState(0);
-  const metric = metrics[selected];
-  const scale = Math.max(r3[metric.field], p6[metric.field]);
-
   return (
-    <div className="benchmark">
-      <fieldset className="metric-tabs">
-        <legend className="sr-only">选择实验指标</legend>
-        {metrics.map((item, index) => (
-          <button
-            key={item.name}
-            type="button"
-            aria-pressed={selected === index}
-            onClick={() => setSelected(index)}
-          >
-            {item.name}
-          </button>
-        ))}
-      </fieldset>
-      <div className="benchmark-result" aria-live="polite">
-        <div className="benchmark-head">
-          <span>P6 · {metric.label}</span>
-          <strong>
-            {p6[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
-          </strong>
-        </div>
-        <div className="comparison-row">
-          <div>
-            <span>{r3.version}</span>
-            <b>
-              {r3[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
-            </b>
-          </div>
-          <div className="bar-track">
-            <div
-              className="bar baseline"
-              style={{ width: `${(r3[metric.field] / scale) * 100}%` }}
+    <fieldset className="benchmark">
+      <legend className="sr-only">选择实验指标</legend>
+      {metrics.map((metric, index) => {
+        const id = `benchmark-${metric.field}`;
+        const scale = Math.max(r3[metric.field], p6[metric.field]);
+        return (
+          <Fragment key={metric.field}>
+            <input
+              className="metric-choice sr-only"
+              id={id}
+              type="radio"
+              name="planning-metric"
+              defaultChecked={index === 0}
+              aria-controls={`${id}-result`}
             />
-          </div>
-        </div>
-        <div className="comparison-row">
-          <div>
-            <span>{p6.version}</span>
-            <b>
-              {p6[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
-            </b>
-          </div>
-          <div className="bar-track">
-            <div
-              className="bar current"
-              style={{ width: `${(p6[metric.field] / scale) * 100}%` }}
-            />
-          </div>
-        </div>
-        <p className="chart-note">{metric.note}</p>
-      </div>
-    </div>
+            <label className="metric-label" htmlFor={id} style={{ gridColumn: index + 1 }}>
+              {metric.name}
+            </label>
+            <div id={`${id}-result`} className="benchmark-result">
+              <div className="benchmark-head">
+                <span>P6 · {metric.label}</span>
+                <strong>
+                  {p6[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
+                </strong>
+              </div>
+              {[r3, p6].map((release) => (
+                <div className="comparison-row" key={release.version}>
+                  <div>
+                    <span>{release.version}</span>
+                    <b>
+                      {release[metric.field].toFixed(metric.digits)} <small>{metric.unit}</small>
+                    </b>
+                  </div>
+                  <div className="bar-track">
+                    <div
+                      className={release === p6 ? 'bar current' : 'bar baseline'}
+                      style={{ width: `${(release[metric.field] / scale) * 100}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+              <p className="chart-note">{metric.note}</p>
+            </div>
+          </Fragment>
+        );
+      })}
+    </fieldset>
   );
 }

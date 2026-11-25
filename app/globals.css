@@ -526,33 +526,40 @@ a.text-link:hover,
   font-size: 12px;
 }
 .benchmark {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 3px;
+  min-width: 0;
+  margin: 0;
   border: 1px solid var(--line);
   background: var(--white);
   border-radius: 5px;
   padding: 27px;
 }
-.metric-tabs {
-  margin: 0;
-  border: 0;
-  min-width: 0;
-  display: flex;
+.metric-label {
+  grid-row: 1;
   background: var(--surface);
   border-radius: 3px;
-  padding: 4px;
-  gap: 3px;
-}
-.metric-tabs button {
-  flex: 1;
-  background: none;
-  border: 0;
-  border-radius: 2px;
-  padding: 7px 9px;
+  padding: 8px 4px;
+  text-align: center;
   color: var(--muted);
   font-size: 11px;
+  cursor: pointer;
 }
-.metric-tabs button[aria-pressed='true'] {
+.metric-choice:checked + .metric-label {
   background: var(--ink);
   color: var(--white);
+}
+.metric-choice:focus-visible + .metric-label {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+.benchmark-result {
+  grid-area: 2 / 1 / auto / -1;
+  display: none;
+}
+.metric-choice:checked + .metric-label + .benchmark-result {
+  display: block;
 }
 .benchmark-head {
   margin: 24px 0;
