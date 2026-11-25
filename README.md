@@ -6,10 +6,9 @@
 - [项目图文与视频](https://doribelove.github.io/projects/)
 - [论文与作者稿下载](https://doribelove.github.io/#publications)
 - [GitHub 个人资料](https://github.com/Doribelove)
-- [3YDL3-V13-P6 十图静态规划与版本对照](https://doribelove.github.io/#experiments)
-- [历史 3YD-V5-r11 本地静态实验摘要](https://doribelove.github.io/evidence/3yd-v5-r11.md)
+- [三层全局路径规划器与分层对照](https://doribelove.github.io/projects/#layered-planner)
 
-这是一份中文在线简历与项目作品集，包括两篇论文、五项核心完整项目、机场实车测试、无人机自主作业、双臂魔方演示、规划性能对照、27 项上游已合并贡献、技术能力和联系方式。P6 规划实验更新于 2026-11-25。开源贡献统计截至 2026-11-05，覆盖 12 个上游开源项目。代表性贡献包括 ROS / rosdistro 依赖解析、Robotics Toolbox 轨迹计算与 SpatialMath 几何运算修复。
+这是一份中文在线简历与项目作品集，包括两篇论文、五项核心完整项目、机场实车测试、无人机自主作业、双臂魔方演示、规划性能对照、27 项上游已合并贡献、技术能力和联系方式。路径规划实验更新于 2026-11-25。开源贡献统计截至 2026-11-05，覆盖 12 个上游开源项目。代表性贡献包括 ROS / rosdistro 依赖解析、Robotics Toolbox 轨迹计算与 SpatialMath 几何运算修复。
 
 ## 如何查看
 
@@ -51,9 +50,8 @@ npm run build
 - `public/papers/`：期刊作者稿及首页。
 - `public/media/`：来自项目仓库与挑战杯材料的精选媒体。
 - `public/evidence/contributions-20261105.json`：27 项上游已合并 PR 的贡献详情。
-- `app/pudu.ts` 保存两个版本的十图回归指标与公开报告链接。
+- `app/planner.ts` 保存十图静态规划的汇总指标。
 - `app/components/Benchmark.tsx` 提供耗时和内存的交互对照。
 - `app/resume/page.tsx`：适合打印的简历版。
-- `public/evidence/3yd-v5-r11.md`：经过核验的汇总指标与实验条件。
 
 新增贡献时同步更新 PR 链接、合并日期与贡献统计。

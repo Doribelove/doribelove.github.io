@@ -1,18 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import { p6 } from './pudu';
+import { planner } from './planner';
 
 export const featuredProjects = [
   {
-    id: 'pudu',
-    name: '普渡 · 分层导航与运动规划',
-    category: '工作实践 / ROS 2 · Nav2',
-    image: p6.figure,
-    alt: 'P6 在十张地图上首次规划的耗时中位数、P95 和进程树峰值内存中位数',
+    id: 'layered-planner',
+    name: '三层全局路径规划器',
+    category: '移动机器人导航',
+    image: planner.figure,
+    alt: '完整规划流程与分别关闭各层功能时的成功次数对照',
     summary:
-      `${p6.version} 先选通行走廊，再搜索参考路径、优化连续曲线。十张地图的 300 次静态规划全部成功，其中 297 次精确到达。`,
-    href: p6.source,
+      '从地图拓扑中选出通道，搜索参考路径，再优化整条曲线，使移动机器人满足通行和转弯约束。十张地图上的 300 次静态规划全部成功。',
+    href: null,
     tags: 'ROS 2 / Nav2 · 增量 D* · 三次 B 样条',
   },
   {

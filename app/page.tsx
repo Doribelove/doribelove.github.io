@@ -10,7 +10,6 @@ import {
 import Benchmark from './components/Benchmark';
 import FeaturedProjects, { featuredProjects } from './featured';
 import { Publications } from './publications';
-import { p6, peakMemoryReduction, r3 } from './pudu';
 import {
   contributions,
   contributionsAsOf,
@@ -228,10 +227,10 @@ export default function Home() {
           <div className="shell experiment-grid">
             <div className="experiment-copy">
               <span className="eyebrow">03 / PLANNING PERFORMANCE</span>
-              <h2>十图规划的耗时与内存</h2>
+              <h2>静态规划的耗时与内存</h2>
               <p>
-                {r3.version} 与 {p6.version} 在十张地图上各运行 300 次首次规划。
-                两版均有 297 次精确到达，另有 3 次在允许的位姿容差内完成。
+                在十张地图上选取 100 个固定任务，每个任务从相同起终位姿运行三轮。
+                297 次精确到达，另外 3 次在允许的位姿容差内完成。
               </p>
               <div className="experiment-facts">
                 <div>
@@ -239,18 +238,13 @@ export default function Home() {
                   <span>固定任务数 × 测试轮数</span>
                 </div>
                 <div>
-                  <strong>{peakMemoryReduction}%</strong>
-                  <span>P6 的进程树峰值 RSS 中位数降幅</span>
+                  <strong>300/300</strong>
+                  <span>成功的规划请求</span>
                 </div>
               </div>
-              <a className="text-link" href={p6.report} target="_blank" rel="noreferrer">
-                P6 实验报告与原始数据 <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-              <p className="scope-note">
-                <a href={r3.report} target="_blank" rel="noreferrer">V11-r3 对照数据 ↗</a>
-                {' · '}
-                <a href="/evidence/3yd-v5-r11.md" download>早期 V5-r11 实验摘要 ↓</a>
-              </p>
+              <Link className="text-link" href="/projects/#layered-planner">
+                规划流程与分层对照 <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
             </div>
             <Benchmark />
           </div>

@@ -10,7 +10,7 @@ import {
   updatedOn,
 } from '../content';
 import { publications } from '../publications';
-import { p6, peakMemoryReduction, r3 } from '../pudu';
+import { planner } from '../planner';
 
 export const metadata: Metadata = {
   title: 'YongQi Li · 机器人导航与算法工程简历',
@@ -74,23 +74,23 @@ export default function Resume() {
           <h2>核心完整项目</h2>
           <div className="resume-project">
             <h3>
-              <a href="https://doribelove.github.io/projects/#pudu">
-                普渡 · 分层导航与运动规划
+              <a href="https://doribelove.github.io/projects/#layered-planner">
+                三层全局路径规划器
               </a>{' '}
               <span>ROS 2 / Nav2 / C++ / Python</span>
             </h3>
             <ul>
               <li>
-                在 {p6.version} 中，按道路拓扑选路，用增量 D* 更新参考路径，再用三次 B 样条优化整条路线，校验车体通行空间与曲率。
+                按道路拓扑选择通道，在通道内搜索参考路径，通行条件变化时用增量 D* 更新。用三次 B 样条优化整条路径，校验车体通行空间、转弯曲率与交通规则。
               </li>
               <li>
-                十张地图、100 个固定任务各运行三轮，<b>297 次精确到达，3 次容差到达</b>。请求耗时中位数{' '}
-                <b>{p6.medianSeconds} s</b>，P95 <b>{p6.p95Seconds} s</b>。进程树峰值 RSS 中位数{' '}
-                <b>{p6.medianPeakMiB} MiB</b>，较 {r3.version} 低 <b>{peakMemoryReduction}%</b>。
+                十张地图、100 个固定任务各运行三轮，<b>300/300 次静态规划成功</b>。请求耗时中位数{' '}
+                <b>{planner.medianSeconds} s</b>，P95 <b>{planner.p95Seconds} s</b>。进程树峰值内存中位数{' '}
+                <b>{planner.medianPeakMiB} MiB</b>。
               </li>
             </ul>
             <p className="resume-note">
-              地图与服务就绪后开始计时。<a href={p6.report}>P6 实验报告与逐次记录 ↗︎</a>
+              地图与服务就绪后开始计时。<Link href="/#experiments">查看测试结果 ↗︎</Link>
             </p>
           </div>
           <div className="resume-project">

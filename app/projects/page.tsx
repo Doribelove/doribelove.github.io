@@ -7,7 +7,7 @@ import AirportDemos from '../airport-demos';
 import CubeProject from '../cube-project';
 import DroneProject from '../drone-project';
 import EmbodiedProjects from '../embodied-projects';
-import { p6, peakMemoryReduction, r3 } from '../pudu';
+import { planner } from '../planner';
 
 export const metadata: Metadata = {
   title: '核心完整项目与演示 · YongQi Li',
@@ -24,7 +24,7 @@ const photoSizes: Record<string, [number, number]> = {
   '/media/huawei-pipeline.png': [1400, 780],
   '/media/vehicle-task-parsing.png': [960, 720],
   '/media/vehicle-task-complete.png': [960, 720],
-  [p6.figure]: [1600, 1000],
+  [planner.figure]: [1600, 1000],
 };
 
 function Photo({
@@ -62,7 +62,7 @@ export default function Projects() {
           ← YongQi Li
         </Link>
         <nav className="project-nav" aria-label="项目导航">
-          <a href="#pudu">普渡</a>
+          <a href="#layered-planner">路径规划</a>
           <a href="#autolabor">挑战杯</a>
           <a href="#drone">无人机</a>
           <a href="#cube">魔方</a>
@@ -78,15 +78,15 @@ export default function Projects() {
           <p>查看机器人导航、清扫车、无人机、机械臂与多模态问答的项目成果、实机视频和仿真实验。</p>
         </div>
 
-        <section className="work-section" id="pudu">
+        <section className="work-section" id="layered-planner">
           <div className="work-heading">
-            <span className="eyebrow">01 / 工作实践</span>
-            <h2>普渡 · 分层导航与运动规划</h2>
-            <p>{p6.version} · ROS 2 / Nav2 · C++ / Python</p>
+            <span className="eyebrow">01 / 移动机器人导航</span>
+            <h2>三层全局路径规划器</h2>
+            <p>ROS 2 / Nav2 · C++ / Python</p>
           </div>
           <p className="work-lead">
-            规划器先根据地图拓扑选出可通行的走廊，在走廊内搜索二维参考路径。交通条件变化时用增量 D* 更新参考路径，
-            再用三次 B 样条优化整条路线，检查车体通行空间、转弯曲率、交通规则和 Nav2 代价地图。
+            规划器先根据道路拓扑和通行规则选择走廊，在走廊内搜索参考路径。通行条件变化时，增量 D* 更新参考路径。
+            最后一层以三次 B 样条优化整条路线，并结合车体尺寸、转弯曲率、交通规则和 Nav2 代价地图校验结果。
           </p>
           <div className="work-stats">
             <div>
@@ -94,49 +94,37 @@ export default function Projects() {
               <span>静态规划成功 · 297 次精确到达，3 次容差到达</span>
             </div>
             <div>
-              <strong>{p6.medianSeconds} s</strong>
+              <strong>{planner.medianSeconds} s</strong>
               <span>首次规划请求耗时中位数</span>
             </div>
             <div>
-              <strong>{p6.p95Seconds} s</strong>
+              <strong>{planner.p95Seconds} s</strong>
               <span>同批请求耗时 P95</span>
             </div>
           </div>
           <Photo
-            src={p6.figure}
-            alt="P6 十图逐图统计。左图为请求耗时中位数和 P95，右图为进程树峰值 RSS 中位数。"
-            caption="每张地图的 10 个固定任务各运行 3 轮。两幅图按地图面积从小到大排列，每行统计该图的 30 次请求。"
+            src={planner.figure}
+            alt="各配置规划成功数与有效测量数。完整流程 100/100，关闭拓扑搜索 66/100，关闭参考路径搜索 46/100，关闭曲线优化 0/99。"
+            caption="分层对照让每种配置各运行同一组 100 个任务。关闭曲线优化时，另有 1 次在测试框架复位阶段失败。"
           />
           <div className="work-gallery">
             <div className="work-text-card">
-              <h3>两版在相同任务上的表现</h3>
+              <h3>十张地图上的静态测试</h3>
               <p>
-                {r3.version} 与 P6 均完成全部 300 次规划。进程树峰值 RSS 中位数从 {r3.medianPeakMiB} MiB
-                降至 {p6.medianPeakMiB} MiB，低了 {peakMemoryReduction}%。请求耗时中位数从 {r3.medianSeconds} s
-                增至 {p6.medianSeconds} s，P95 从 {r3.p95Seconds} s 增至 {p6.p95Seconds} s。
-              </p>
-              <p className="scope-note">
-                从地图和服务就绪后发出规划请求开始计时，包含请求内的恢复、路径校验和代价地图确认。
+                每张地图选取 10 个固定任务，各运行 3 轮。地图与服务就绪后开始计时，直到完成路径校验并返回结果，
+                期间的恢复和代价地图确认也计入耗时。每次请求的进程树峰值内存（RSS）中位数为 {planner.medianPeakMiB} MiB。
               </p>
             </div>
             <div className="work-text-card">
-              <h3>逐层关闭规划功能后，还能完成多少任务？</h3>
-              <p>另取相同的 100 个固定任务，每种配置各运行一轮。</p>
-              <ul>
-                <li>完整 P6 成功 100/100，其中 99 次精确到达。</li>
-                <li>关闭拓扑搜索（L1）后成功 66/100，关闭参考路径搜索（L2）后成功 46/100。</li>
-                <li>关闭曲线优化（L3）后成功 0/99。另 1 次在测试框架复位时失败。</li>
-              </ul>
+              <h3>三层分别起什么作用？</h3>
+              <p>
+                在独立的分层对照中，完整流程完成全部 100 个任务。关闭拓扑搜索后完成 66 个，关闭参考路径搜索后完成 46 个。
+                关闭曲线优化后的 99 次有效测量中，没有路径通过最终校验。
+              </p>
             </div>
           </div>
           <div className="project-links">
-            <a href={p6.source} target="_blank" rel="noreferrer">
-              P6 源码 <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-            <a href={p6.report} target="_blank" rel="noreferrer">
-              实验报告与逐次数据 <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
-            <Link href="/#experiments">两版内存与耗时对照 ↗</Link>
+            <Link href="/#experiments">查看耗时与内存统计 ↗</Link>
           </div>
         </section>
 
